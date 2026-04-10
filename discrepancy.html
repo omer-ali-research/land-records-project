@@ -13,10 +13,10 @@
         <p class="subtitle">Reported vs collected FHA counts by period</p>
         <nav class="top-nav" aria-label="Primary">
           <a href="index.html">Overview</a>
-          <a href="counties.html">Counties</a>
+          <a href="data-acquisition.html">Data acquisition</a>
+          <a href="trends.html">FHA/VA</a>
           <a href="reported.html">Reported</a>
           <a href="discrepancy.html" class="is-active">Discrepancy</a>
-          <a href="trends.html">FHA/VA</a>
           <a href="maps.html">Maps</a>
           <a href="all-mortgages.html">All mortgages</a>
           <a href="parcel.html">Parcel data</a>
@@ -25,14 +25,6 @@
       </div>
       <div class="top-bar-right">
         <span id="discrepancy-generated-at" class="meta-pill"></span>
-        <a
-          href="https://docs.google.com/spreadsheets/d/1aIXY2koolmfJhz2sqre2nG4ifCk9a2chgCTEP-Oq0s8"
-          target="_blank"
-          rel="noreferrer"
-          class="meta-link"
-        >
-          Open tracker sheet
-        </a>
       </div>
     </header>
 
@@ -45,7 +37,9 @@
           tracker columns used on the <a href="reported.html">Reported</a> page. <strong>Collected</strong>
           is the FHA-only count for that period from digitized records (same bucketing as the FHA/VA
           type table). Within each period column, position on the horizontal axis is proportional to
-          count; scale is shared across all visible counties in that column.
+          count; scale is shared across all visible counties in that column. Column subtitles
+          (<strong>METRO</strong>, <strong>SMA</strong>, <strong>COUNTY</strong>) match the geography
+          type of the tracker field for that period.
         </p>
 
         <div class="discrepancy-legend" aria-label="Dumbbell plot legend">

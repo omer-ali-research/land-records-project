@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-08T17:35:20.252823",
+  "generated_at": "2026-04-09T18:26:59.352550",
   "years": [
     1929,
     1930,
@@ -60,7 +60,6 @@
       "county_id": "Berks County, PA",
       "county_name": "Berks County",
       "state": "PA",
-      "source_file": "/Users/omerali/Library/CloudStorage/Dropbox/RSF - land records project/pa_berks/all_mortgages_30_to_75_dashbpard.xlsx",
       "yearly_counts": [
         {
           "year": 1929,

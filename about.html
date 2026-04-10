@@ -13,10 +13,10 @@
         <p class="subtitle">How this site is generated</p>
         <nav class="top-nav" aria-label="Primary">
           <a href="index.html">Overview</a>
-          <a href="counties.html">Counties</a>
+          <a href="data-acquisition.html">Data acquisition</a>
+          <a href="trends.html">FHA/VA</a>
           <a href="reported.html">Reported</a>
           <a href="discrepancy.html">Discrepancy</a>
-          <a href="trends.html">FHA/VA</a>
           <a href="maps.html">Maps</a>
           <a href="all-mortgages.html">All mortgages</a>
           <a href="parcel.html">Parcel data</a>
@@ -25,14 +25,6 @@
       </div>
       <div class="top-bar-right">
         <span id="generated-at" class="meta-pill"></span>
-        <a
-          href="https://docs.google.com/spreadsheets/d/1aIXY2koolmfJhz2sqre2nG4ifCk9a2chgCTEP-Oq0s8"
-          target="_blank"
-          rel="noreferrer"
-          class="meta-link"
-        >
-          Open tracker sheet
-        </a>
       </div>
     </header>
 
@@ -47,70 +39,62 @@
         <h2>How to update the data</h2>
         <p>
           Run <code>python scripts/build_summary.py</code> locally. That script writes
-          <code>data_summary/summary.json</code> (for analysis) and copies the same file to
-          <code>docs/summary.json</code> (for the website).
+          <code>data_summary/summary.json</code> (for analysis) and a public-safe copy to
+          <code>docs/summary.json</code> (Drive/Dropbox URLs stripped for the published site).
         </p>
 
         <h2>Parcel data page</h2>
         <p>
-          The same script scans your local <code>parcel_data</code> folder (one subfolder per
-          county)—by default <code>~/Library/CloudStorage/Dropbox/parcel_data</code> or
-          <code>~/Dropbox/parcel_data</code> depending on which exists—and writes
-          <code>parcel_counties.json</code>. The Dropbox share link in the UI is for people
-          only. Override <code>PARCEL_DATA_DIR</code> in <code>scripts/build_summary.py</code>
-          if your path differs.
+          The same script scans your local <code>parcel_data</code> folder (see
+          <code>PARCEL_DATA_DIR</code> in <code>scripts/build_summary.py</code>) and writes
+          <code>parcel_counties.json</code>. The published site does not link to cloud
+          storage; the table reflects whatever was baked into the JSON at build time.
         </p>
 
-        <h2>Counties page · data folder link</h2>
+        <h2>Data acquisition page</h2>
         <p>
           Row counts come from files under <code>DATA_ROOT</code> in
-          <code>scripts/build_summary.py</code>. The button uses a Dropbox shared-folder
-          HTTPS link (see <code>DROPBOX_DATA_FOLDER_URL</code>), like the parcel page. If
-          that constant is empty, the build falls back to a local <code>file://</code> path.
+          <code>scripts/build_summary.py</code>. The public site omits Google Drive and
+          Dropbox URLs from the JSON copy under <code>docs/</code>; full URLs stay in the
+          private repo / local <code>data_summary/</code> outputs if you configure them
+          there.
         </p>
 
         <h2>How to turn on the public link (first time only)</h2>
         <p>
-          GitHub does not publish the site until you tell it which folder to use. “
-          <strong>main + /docs</strong>” means: use the <code>docs</code> folder on the
-          <code>main</code> branch as the website root (so <code>docs/index.html</code> becomes
-          the home page).
+          If you use a <strong>separate public repository</strong> for GitHub Pages, enable
+          Pages on that repo (branch <code>main</code>, folder <code>/ (root)</code>) and use
+          the Actions workflow in the private repo to deploy. If you publish from this repo’s
+          <code>docs/</code> folder on <code>main</code>, choose that folder in Pages settings.
         </p>
         <ol class="about-steps">
           <li>
-            Open your repo on GitHub → <strong>Settings</strong> (top bar of the repo, not your
-            profile).
+            Open the <strong>public</strong> site repository on GitHub →
+            <strong>Settings</strong> → <strong>Pages</strong>.
           </li>
-          <li>Left sidebar → <strong>Pages</strong>.</li>
           <li>
             Under <strong>Build and deployment</strong> → <strong>Source</strong>, choose
             <strong>Deploy from a branch</strong>.
           </li>
           <li>
-            Under <strong>Branch</strong>: select <code>main</code>, folder
-            <code>/docs</code>, then <strong>Save</strong>.
+            Branch <code>main</code>, folder <code>/ (root)</code>, then <strong>Save</strong>.
           </li>
           <li>
-            Wait one to two minutes, then open
-            <a
-              href="https://omer-ali-hub.github.io/land-records-dashboard/"
-              target="_blank"
-              rel="noreferrer"
-              >https://omer-ali-hub.github.io/land-records-dashboard/</a
-            >. If it still 404s, refresh after another minute.
+            Open the site URL shown on that page (for example
+            <code>https://YOURUSERNAME.github.io/REPO/</code>).
           </li>
         </ol>
 
         <h2>How to publish updates</h2>
         <p>
-          Commit and push changes under <code>docs/</code> (especially
-          <code>docs/summary.json</code> and <code>docs/parcel_counties.json</code>) to
-          <code>main</code>. GitHub Pages updates shortly after each push.
+          Commit and push from the private repo; the <strong>Publish public site</strong>
+          workflow copies <code>docs/</code> to the public repo. Or commit
+          <code>docs/</code> directly to <code>main</code> if Pages reads from this repo.
         </p>
 
         <div class="page-actions">
           <a class="meta-link" href="index.html">Back to overview</a>
-          <a class="meta-link" href="counties.html">Open counties table</a>
+          <a class="meta-link" href="data-acquisition.html">Open data acquisition table</a>
         </div>
       </section>
     </main>

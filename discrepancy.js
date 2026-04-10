@@ -11,6 +11,16 @@ const PERIOD_REPORTED_KEYS = {
   "1975": "target counties__1975 FHA 203B by SMA",
 };
 
+/** Agency geography type shown under the period year (matches tracker column definitions). */
+const PERIOD_SCOPE_LABEL = {
+  "1935-40": "METRO",
+  "1950": "SMA",
+  "1960": "COUNTY",
+  "1965": "COUNTY",
+  "1970": "SMA",
+  "1975": "SMA",
+};
+
 /* Distinct hues: warm (reported / agency) vs cool blue (collected / in-hand) */
 const COLOR_REPORTED_FILL = "rgba(249, 115, 22, 0.98)";
 const COLOR_REPORTED_STROKE = "rgba(254, 215, 170, 0.55)";
@@ -29,7 +39,7 @@ function escapeHtml(str) {
 }
 
 async function loadTrendsJsonDiscrepancy() {
-  const candidates = ["../data_summary/trends.json", "trends.json"];
+  const candidates = ["trends.json", "../data_summary/trends.json"];
   let lastStatus = null;
   for (const url of candidates) {
     const res = await fetch(url, { cache: "no-store" });
@@ -139,8 +149,9 @@ function dumbbellSvg(reportedNum, collectedNum, scaleMax, periodLabel) {
       )}</text>`,
     );
   } else {
+    /* Center “no reported” so it never sits on the axis and collides with a left‑side collected dot (e.g. Tulsa 1950). */
     parts.push(
-      `<text x="${padX}" y="${labelTopY}" text-anchor="start" fill="#64748b" ${font}>—</text>`,
+      `<text x="${w / 2}" y="${labelTopY}" text-anchor="middle" fill="#94a3b8" ${font}>—</text>`,
     );
   }
 
@@ -162,9 +173,13 @@ function periodColumnLabel(p) {
 
 function renderDiscrepancyThead(thead, periods) {
   if (!thead) return;
-  const ths = periods.map(
-    (p) => `<th scope="col">${escapeHtml(periodColumnLabel(p))}</th>`,
-  );
+  const ths = periods.map((p) => {
+    const scope = PERIOD_SCOPE_LABEL[p] || "";
+    return `<th scope="col" class="discrepancy-period-th">
+      <span class="discrepancy-th-period">${escapeHtml(periodColumnLabel(p))}</span>
+      <span class="discrepancy-th-scope">${escapeHtml(scope)}</span>
+    </th>`;
+  });
   thead.innerHTML = `<tr>
     <th scope="col">County</th>
     <th scope="col">St</th>

@@ -1,6 +1,5 @@
 async function loadSummaryJson() {
-  // Prefer `docs/summary.json` (GitHub Pages). Fall back to repo `data_summary/`
-  // when previewing locally via `python -m http.server` from the repo root.
+  // GitHub Pages / docs/: same folder as the HTML. Local preview from site/: ../data_summary/
   const candidates = ["summary.json", "../data_summary/summary.json"];
   let lastStatus = null;
   for (const url of candidates) {
@@ -13,7 +12,7 @@ async function loadSummaryJson() {
   throw new Error(
     lastStatus != null
       ? `Could not load summary (last HTTP ${lastStatus})`
-      : "Could not load summary"
+      : "Could not load summary",
   );
 }
 
@@ -55,7 +54,6 @@ function getRowStatusRaw(row) {
   );
 }
 
-/** Single status string for filtering + display (matches Status column). */
 function statusDisplayForFilter(row) {
   const raw = getRowStatusRaw(row);
   if (raw !== undefined && raw !== null && String(raw).trim() !== "") {
@@ -467,22 +465,6 @@ async function initCountiesPage() {
 
     populateStatusFilter(counties);
     setupFilters(counties);
-
-    const dataFolderLink = document.getElementById("dropbox-data-link");
-    if (dataFolderLink) {
-      const url = (data.dropbox_data_folder_url || "").trim();
-      if (url) {
-        dataFolderLink.href = url;
-        dataFolderLink.hidden = false;
-        if (url.startsWith("https://") || url.startsWith("http://")) {
-          dataFolderLink.target = "_blank";
-          dataFolderLink.rel = "noreferrer noopener";
-        } else {
-          dataFolderLink.target = "_self";
-          dataFolderLink.rel = "noreferrer";
-        }
-      }
-    }
   } catch (err) {
     console.error("Failed to load summary.json", err);
     if (tbody) {

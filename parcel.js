@@ -11,11 +11,28 @@ function formatNum(v) {
   return Number(v || 0).toLocaleString();
 }
 
+/** e.g. az_maricopa → "AZ Maricopa" (2-letter state prefix, then title case). */
+function folderToParcelDisplayName(folder) {
+  const raw = String(folder || "").trim();
+  const idx = raw.indexOf("_");
+  if (idx === 2 && /^[a-zA-Z]{2}$/.test(raw.slice(0, 2))) {
+    const st = raw.slice(0, 2).toUpperCase();
+    const rest = raw.slice(3).replace(/_/g, " ").trim();
+    const titled = rest
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+      .join(" ");
+    return `${st} ${titled}`.trim();
+  }
+  return raw.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
 /** Normalize legacy string-only county entries. */
 function normalizeParcelCountyEntry(raw) {
   if (typeof raw === "string") {
     const folder = raw;
-    const countyName = folder.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+    const countyName = folderToParcelDisplayName(folder);
     return {
       folder,
       county_name: countyName,
@@ -35,9 +52,7 @@ async function loadParcelJson() {
   let lastStatus = null;
   for (const url of candidates) {
     const res = await fetch(url, { cache: "no-store" });
-    if (res.ok) {
-      return await res.json();
-    }
+    if (res.ok) return await res.json();
     lastStatus = res.status;
   }
   throw new Error(lastStatus != null ? `HTTP ${lastStatus}` : "No parcel list found");
@@ -62,14 +77,8 @@ async function initParcelPage() {
   const tbody = document.getElementById("parcel-tbody");
   const metaEl = document.getElementById("parcel-generated-at");
   const countLine = document.getElementById("parcel-count-line");
-  const dropboxLink = document.getElementById("dropbox-parcel-link");
-
   try {
     const data = await loadParcelJson();
-
-    if (data.dropbox_folder_url && dropboxLink) {
-      dropboxLink.href = data.dropbox_folder_url;
-    }
 
     if (data.generated_at && metaEl) {
       const dt = new Date(data.generated_at);
@@ -96,7 +105,9 @@ async function initParcelPage() {
 
     tbody.innerHTML = rows
       .map((c) => {
-        const name = escapeHtml(c.county_name || c.folder || "");
+        const name = escapeHtml(
+          folderToParcelDisplayName(c.folder || c.county_name || ""),
+        );
         const { text, title } = formatLegalPct(c);
         return `<tr>
           <td>${name}</td>

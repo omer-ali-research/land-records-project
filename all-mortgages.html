@@ -14,10 +14,10 @@
         <p class="subtitle">All mortgage types by year</p>
         <nav class="top-nav" aria-label="Primary">
           <a href="index.html">Overview</a>
-          <a href="counties.html">Counties</a>
+          <a href="data-acquisition.html">Data acquisition</a>
+          <a href="trends.html">FHA/VA</a>
           <a href="reported.html">Reported</a>
           <a href="discrepancy.html">Discrepancy</a>
-          <a href="trends.html">FHA/VA</a>
           <a href="maps.html">Maps</a>
           <a href="all-mortgages.html" class="is-active">All mortgages</a>
           <a href="parcel.html">Parcel data</a>
@@ -33,8 +33,10 @@
       <section class="table-panel">
         <h2>All mortgages by year</h2>
         <p class="parcel-intro">
-          Counties shown here are the ones with fully digitized mortgage datasets (FHA, VA, and
-          conventional). Bars are stacked by mortgage type for each calendar year from 1929 to 1976.
+          Counties shown here have fully digitized mortgage datasets (FHA, VA, and conventional
+          where labeled). Bars are stacked by mortgage type for each calendar year from 1929 to
+          1976. Chart totals include every classified row; maps only plot rows with valid coordinates
+          inside the county boundary (some deeds have no geocode yet).
         </p>
         <div id="all-mortgages-charts-root" class="trends-charts-root" aria-busy="true"></div>
 

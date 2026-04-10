@@ -25,7 +25,7 @@ function mapsBaseUrl() {
 }
 
 async function loadAllMortgagesJson() {
-  const candidates = ["../data_summary/all_mortgages.json", "all_mortgages.json"];
+  const candidates = ["all_mortgages.json", "../data_summary/all_mortgages.json"];
   let lastStatus = null;
   for (const url of candidates) {
     const res = await fetch(url, { cache: "no-store" });

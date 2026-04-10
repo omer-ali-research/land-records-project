@@ -2,27 +2,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
 
 :root {
-  --bg: #030712;
-  --bg-elevated: #0c1222;
-  --bg-softer: #020617;
-  --surface-1: rgba(15, 23, 42, 0.72);
-  --surface-2: rgba(15, 23, 42, 0.88);
+  /* Softer dark theme: slate blues instead of near-black */
+  --bg: #161f30;
+  --bg-elevated: #1e2a3f;
+  --bg-softer: #121a28;
+  --surface-1: rgba(41, 54, 78, 0.78);
+  --surface-2: rgba(41, 54, 78, 0.92);
   --accent: #22d3ee;
   --accent-soft: rgba(34, 211, 238, 0.12);
   --accent-glow: rgba(34, 211, 238, 0.22);
   --text: #f1f5f9;
   --muted: #94a3b8;
-  --border-subtle: rgba(71, 85, 105, 0.45);
-  --card-border: rgba(51, 65, 85, 0.55);
-  --card-border-inner: rgba(255, 255, 255, 0.04);
+  --border-subtle: rgba(100, 116, 139, 0.42);
+  --card-border: rgba(71, 85, 105, 0.5);
+  --card-border-inner: rgba(255, 255, 255, 0.06);
   --danger: #fb7185;
   --warning: #fbbf24;
   --success: #4ade80;
   --radius-lg: 16px;
   --radius-md: 12px;
-  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.25),
-    0 12px 32px -8px rgba(0, 0, 0, 0.45);
-  --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.14),
+    0 12px 32px -8px rgba(0, 0, 0, 0.28);
+  --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.12);
   --shadow-inset: inset 0 1px 0 var(--card-border-inner);
   --transition-fast: 180ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -51,7 +52,7 @@ body {
       transparent 55%
     ),
     radial-gradient(ellipse 80% 50% at 100% 0%, rgba(99, 102, 241, 0.06), transparent 45%),
-    linear-gradient(180deg, #0f172a 0%, var(--bg) 38%, #020617 100%);
+    linear-gradient(180deg, #243047 0%, var(--bg) 38%, var(--bg-softer) 100%);
   background-attachment: fixed;
   color: var(--text);
 }
@@ -70,7 +71,8 @@ body {
 .top-bar {
   position: sticky;
   top: 0;
-  z-index: 10;
+  /* Above Leaflet panes (≤800) so maps don’t cover the header when scrolling */
+  z-index: 1200;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -80,8 +82,8 @@ body {
   backdrop-filter: blur(20px) saturate(1.2);
   background: linear-gradient(
     to bottom,
-    rgba(15, 23, 42, 0.92),
-    rgba(15, 23, 42, 0.78)
+    rgba(41, 54, 78, 0.94),
+    rgba(41, 54, 78, 0.82)
   );
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
 }
@@ -121,7 +123,7 @@ body {
   text-decoration: none;
   color: var(--muted);
   border: 1px solid var(--card-border);
-  background: rgba(15, 23, 42, 0.5);
+  background: rgba(41, 54, 78, 0.5);
   transition: background var(--transition-fast), border-color var(--transition-fast),
     color var(--transition-fast), box-shadow var(--transition-fast);
 }
@@ -150,7 +152,7 @@ body {
   font-weight: 500;
   padding: 5px 12px;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(41, 54, 78, 0.85);
   border: 1px solid var(--card-border);
   color: var(--muted);
   box-shadow: var(--shadow-inset);
@@ -200,6 +202,11 @@ body {
   grid-template-columns: minmax(0, 1fr);
 }
 
+/* Reported table: use full viewport width; horizontal scroll inside .table-wrapper if needed */
+.layout.layout--reported-page {
+  max-width: 100%;
+}
+
 @media (max-width: 900px) {
   .layout {
     grid-template-columns: minmax(0, 1fr);
@@ -208,7 +215,7 @@ body {
 
 .page-panel {
   border-radius: var(--radius-lg);
-  background: linear-gradient(165deg, var(--surface-2) 0%, rgba(15, 23, 42, 0.95) 100%);
+  background: linear-gradient(165deg, var(--surface-2) 0%, rgba(41, 54, 78, 0.95) 100%);
   box-shadow: var(--shadow-soft), var(--shadow-inset);
   border: 1px solid var(--card-border);
   padding: 22px 22px 18px;
@@ -252,7 +259,7 @@ body {
 .summary-panel,
 .table-panel {
   border-radius: var(--radius-lg);
-  background: linear-gradient(165deg, var(--surface-2) 0%, rgba(15, 23, 42, 0.95) 100%);
+  background: linear-gradient(165deg, var(--surface-2) 0%, rgba(41, 54, 78, 0.95) 100%);
   box-shadow: var(--shadow-soft), var(--shadow-inset);
   border: 1px solid var(--card-border);
   padding: 22px 22px 18px;
@@ -300,7 +307,7 @@ body {
 
 .map-panel {
   border-radius: var(--radius-lg);
-  background: linear-gradient(165deg, var(--surface-2) 0%, rgba(15, 23, 42, 0.95) 100%);
+  background: linear-gradient(165deg, var(--surface-2) 0%, rgba(41, 54, 78, 0.95) 100%);
   border: 1px solid var(--card-border);
   padding: 22px 22px 24px;
   box-shadow: var(--shadow-soft), var(--shadow-inset);
@@ -353,7 +360,8 @@ body {
   max-width: 960px;
   margin: 0 auto;
   min-height: 280px;
-  overflow: visible;
+  overflow: hidden;
+  border-radius: var(--radius-md);
 }
 
 .overview-map-svg {
@@ -361,9 +369,9 @@ body {
   height: auto;
   display: block;
   border-radius: var(--radius-md);
-  background: radial-gradient(ellipse at 50% 30%, #1e293b 0%, #0f172a 45%, #020617 100%);
+  background: radial-gradient(ellipse at 50% 30%, #334155 0%, #1e293b 45%, #121a28 100%);
   border: 1px solid var(--card-border);
-  overflow: visible;
+  overflow: hidden;
   touch-action: none;
   cursor: grab;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), var(--shadow-inset);
@@ -380,7 +388,7 @@ body {
 }
 
 .county-base {
-  fill: #0f172a;
+  fill: #1e293b;
   stroke: rgba(148, 163, 184, 0.22);
   stroke-width: 0.45px;
 }
@@ -415,7 +423,7 @@ body {
   font-size: 8px;
   font-weight: 500;
   pointer-events: none;
-  text-shadow: 0 0 4px #020617, 0 0 8px #020617, 0 1px 2px #000;
+  text-shadow: 0 0 4px #121a28, 0 0 8px #121a28, 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
 .map-label--hover {
@@ -435,7 +443,7 @@ body {
 .summary-card {
   padding: 14px 16px;
   border-radius: var(--radius-md);
-  background: linear-gradient(145deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.9) 100%);
+  background: linear-gradient(145deg, rgba(51, 65, 85, 0.42) 0%, rgba(41, 54, 78, 0.88) 100%);
   border: 1px solid var(--card-border);
   box-shadow: var(--shadow-subtle), var(--shadow-inset);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
@@ -480,7 +488,7 @@ input[type="search"],
 select {
   border-radius: 999px;
   border: 1px solid var(--border-subtle);
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(41, 54, 78, 0.9);
   color: var(--text);
   padding: 7px 11px;
   font-size: 0.85rem;
@@ -498,7 +506,7 @@ input[type="search"]:focus,
 select:focus {
   border-color: rgba(34, 211, 238, 0.55);
   box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.15);
-  background: rgba(15, 23, 42, 0.96);
+  background: rgba(41, 54, 78, 0.96);
 }
 
 input[type="search"]:focus-visible,
@@ -510,7 +518,7 @@ select:focus-visible {
   border-radius: var(--radius-md);
   border: 1px solid var(--card-border);
   overflow: auto;
-  background: rgba(2, 6, 23, 0.45);
+  background: rgba(15, 23, 42, 0.45);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
@@ -519,10 +527,16 @@ select:focus-visible {
 }
 
 .table-wrapper--reported .table-reported {
-  min-width: 1080px;
-  width: 100%;
+  min-width: 1520px;
+  width: max-content;
+  max-width: none;
   border-collapse: collapse;
   font-size: 0.88rem;
+}
+
+.table-reported th,
+.table-reported td {
+  white-space: nowrap;
 }
 
 .table-reported th.num-cell,
@@ -530,6 +544,8 @@ select:focus-visible {
   text-align: right;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
 .reported-intro {
@@ -573,7 +589,7 @@ select:focus-visible {
   padding: 12px 16px;
   border-radius: var(--radius-md);
   border: 1px solid var(--card-border);
-  background: rgba(2, 6, 23, 0.45);
+  background: rgba(15, 23, 42, 0.45);
   font-size: 0.88rem;
   color: var(--text);
 }
@@ -657,6 +673,28 @@ select:focus-visible {
   text-align: center;
 }
 
+.discrepancy-period-th {
+  vertical-align: bottom;
+  line-height: 1.25;
+}
+
+.discrepancy-th-period {
+  display: block;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.discrepancy-th-scope {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
 .discrepancy-cell {
   text-align: center;
   padding: 8px 10px !important;
@@ -677,7 +715,7 @@ select:focus-visible {
 .trends-chart-card {
   border-radius: var(--radius-md);
   border: 1px solid var(--card-border);
-  background: rgba(2, 6, 23, 0.5);
+  background: rgba(15, 23, 42, 0.5);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
   padding: 16px 18px 14px;
   overflow: hidden;
@@ -748,7 +786,7 @@ select:focus-visible {
 .maps-county-card {
   border-radius: var(--radius-md);
   border: 1px solid var(--card-border);
-  background: rgba(2, 6, 23, 0.45);
+  background: rgba(15, 23, 42, 0.45);
   overflow: hidden;
 }
 
@@ -760,7 +798,7 @@ select:focus-visible {
   gap: 12px 20px;
   padding: 14px 16px;
   border-bottom: 1px solid var(--card-border);
-  background: rgba(15, 23, 42, 0.35);
+  background: rgba(41, 54, 78, 0.35);
 }
 
 .maps-county-card__head h3 {
@@ -792,7 +830,7 @@ select:focus-visible {
   padding: 8px 12px;
   border-radius: var(--radius-md);
   border: 1px solid var(--card-border);
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(41, 54, 78, 0.9);
   color: var(--text);
   font-family: inherit;
   font-size: 0.88rem;
@@ -853,15 +891,15 @@ table {
 thead {
   background: linear-gradient(
     to right,
-    rgba(15, 23, 42, 0.96),
-    rgba(15, 23, 42, 0.99)
+    rgba(41, 54, 78, 0.96),
+    rgba(41, 54, 78, 0.99)
   );
 }
 
 th,
 td {
   padding: 8px 10px;
-  border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+  border-bottom: 1px solid rgba(51, 65, 85, 0.55);
   white-space: nowrap;
 }
 
@@ -909,11 +947,11 @@ th.th-sortable.th-sort-desc::after {
 }
 
 tbody tr:nth-child(even) {
-  background: rgba(15, 23, 42, 0.55);
+  background: rgba(41, 54, 78, 0.55);
 }
 
 tbody tr:nth-child(odd) {
-  background: rgba(15, 23, 42, 0.35);
+  background: rgba(41, 54, 78, 0.35);
 }
 
 tbody tr:hover {
@@ -973,7 +1011,7 @@ td {
   font-size: 0.8125rem;
   color: var(--muted);
   border-top: 1px solid var(--card-border);
-  background: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(3, 7, 18, 0.98));
+  background: linear-gradient(to top, rgba(41, 54, 78, 0.92), rgba(22, 30, 46, 0.96));
   display: flex;
   align-items: baseline;
   gap: 8px;
@@ -983,7 +1021,7 @@ td {
 }
 
 .footer code {
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(41, 54, 78, 0.85);
   padding: 4px 8px;
   border-radius: 8px;
   border: 1px solid var(--card-border);
@@ -1064,7 +1102,7 @@ td {
   gap: 16px 22px;
   padding: 10px 16px;
   border-bottom: 1px solid var(--card-border);
-  background: rgba(15, 23, 42, 0.25);
+  background: rgba(41, 54, 78, 0.25);
   font-size: 0.82rem;
   color: var(--text);
 }
@@ -1099,7 +1137,7 @@ td {
   border-radius: 50%;
   border: 2px solid #facc15;
   background: transparent;
-  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.25);
+  box-shadow: 0 0 0 1px rgba(41, 54, 78, 0.25);
 }
 
 .all-mortgages-legend-swatch--conventional {
@@ -1109,7 +1147,7 @@ td {
   border-radius: 50%;
   background: #94a3b8;
   border: 1px solid rgba(71, 85, 105, 0.65);
-  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.2);
+  box-shadow: 0 0 0 1px rgba(41, 54, 78, 0.2);
 }
 
 .all-mortgages-slider-wrap {
@@ -1118,7 +1156,7 @@ td {
   gap: 8px;
   padding: 12px 16px 14px;
   border-top: 1px solid var(--card-border);
-  background: rgba(15, 23, 42, 0.3);
+  background: rgba(41, 54, 78, 0.3);
 }
 
 .all-mortgages-slider-wrap label {

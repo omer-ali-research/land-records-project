@@ -13,10 +13,10 @@
         <p class="subtitle">Counties with parcel data on disk</p>
         <nav class="top-nav" aria-label="Primary">
           <a href="index.html">Overview</a>
-          <a href="counties.html">Counties</a>
+          <a href="data-acquisition.html">Data acquisition</a>
+          <a href="trends.html">FHA/VA</a>
           <a href="reported.html">Reported</a>
           <a href="discrepancy.html">Discrepancy</a>
-          <a href="trends.html">FHA/VA</a>
           <a href="maps.html">Maps</a>
           <a href="all-mortgages.html">All mortgages</a>
           <a href="parcel.html" class="is-active">Parcel data</a>
@@ -25,15 +25,6 @@
       </div>
       <div class="top-bar-right">
         <span id="parcel-generated-at" class="meta-pill"></span>
-        <a
-          id="dropbox-parcel-link"
-          href="https://www.dropbox.com/scl/fo/zwwwzz38lmvxtb4lumdc7/ADHTwOEiOcNLMEbUm2MhGMA?rlkey=5qsavvofbmifoborcfa7k2su9&st=w3t33o7d&dl=0"
-          target="_blank"
-          rel="noreferrer"
-          class="meta-link"
-        >
-          Open Dropbox folder
-        </a>
       </div>
     </header>
 
@@ -44,8 +35,8 @@
           Each subfolder under your synced <code>parcel_data</code> folder (folder name =
           county) is listed below—usually
           <code>~/Library/CloudStorage/Dropbox/parcel_data</code> or
-          <code>~/Dropbox/parcel_data</code> on a Mac. The Dropbox button opens the cloud
-          folder; the table is built when you run <code>python scripts/build_summary.py</code>.
+          <code>~/Dropbox/parcel_data</code> on a Mac. The table is built when you run
+          <code>python scripts/build_summary.py</code>.
           Legal description filled is the percentage of rows with a non-empty value in the
           legal-description column (name variants like <code>legal_description</code> are
           matched) across CSV/Excel files in each county folder.

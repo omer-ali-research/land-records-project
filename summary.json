@@ -1,8 +1,8 @@
 {
   "generated_at": "2026-04-08T17:34:19.008959",
-  "source_sheet": "https://docs.google.com/spreadsheets/d/1aIXY2koolmfJhz2sqre2nG4ifCk9a2chgCTEP-Oq0s8",
+  "source_sheet": "",
   "target_counties_tab": "target counties",
-  "dropbox_data_folder_url": "https://www.dropbox.com/scl/fo/bf0l3vtxyiy85ke4shqdo/ACSU_Hpcz9JjUDSMJQPl0H8?rlkey=c0oh21de2ojzyq2egcuqewfml&st=745m3cw5&dl=0",
+  "dropbox_data_folder_url": "",
   "totals": {
     "num_counties": 65,
     "rows_total": 103846,

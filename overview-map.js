@@ -211,8 +211,18 @@ async function renderOverviewMap(container, counties) {
     const labelClipPadX = 72;
     const labelClipPadY = 28;
 
-    svg
-      .append("defs")
+    const defs = svg.append("defs");
+
+    defs
+      .append("clipPath")
+      .attr("id", "overview-map-viewport-clip")
+      .append("rect")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", width)
+      .attr("height", height);
+
+    defs
       .append("clipPath")
       .attr("id", "overview-map-inner-clip")
       .append("rect")
@@ -222,6 +232,8 @@ async function renderOverviewMap(container, counties) {
       .attr("height", height + 2 * labelClipPadY);
 
     const zoomLayer = svg
+      .append("g")
+      .attr("clip-path", "url(#overview-map-viewport-clip)")
       .append("g")
       .attr("class", "overview-map-zoom-layer");
 

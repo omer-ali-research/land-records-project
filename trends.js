@@ -8,7 +8,7 @@ function escapeHtml(str) {
 }
 
 async function loadTrendsJson() {
-  const candidates = ["../data_summary/trends.json", "trends.json"];
+  const candidates = ["trends.json", "../data_summary/trends.json"];
   let lastStatus = null;
   for (const url of candidates) {
     const res = await fetch(url, { cache: "no-store" });
@@ -232,12 +232,11 @@ function setChartsPlaceholder(root, message) {
 }
 
 async function initTrendsPage() {
-  const tbody = document.getElementById("trends-tbody");
   const typeThead = document.getElementById("trends-type-thead");
   const typeTbody = document.getElementById("trends-type-tbody");
   const chartsRoot = document.getElementById("trends-charts-root");
   const meta = document.getElementById("trends-generated-at");
-  if (!tbody) return;
+  if (!typeTbody) return;
 
   try {
     const data = await loadTrendsJson();
@@ -251,11 +250,8 @@ async function initTrendsPage() {
 
     const rows = Array.isArray(data.counties) ? data.counties : [];
     if (!rows.length) {
-      tbody.innerHTML = '<tr><td colspan="9" class="placeholder">No trend rows found.</td></tr>';
       if (typeThead) typeThead.innerHTML = "";
-      if (typeTbody) {
-        typeTbody.innerHTML = `<tr><td colspan="${span}" class="placeholder">No trend rows found.</td></tr>`;
-      }
+      typeTbody.innerHTML = `<tr><td colspan="${span}" class="placeholder">No trend rows found.</td></tr>`;
       setChartsPlaceholder(chartsRoot, "No counties to chart.");
       return;
     }
@@ -263,23 +259,6 @@ async function initTrendsPage() {
     if (typeThead && periods.length) {
       typeThead.innerHTML = renderTypeTableThead(periods);
     }
-
-    tbody.innerHTML = rows
-      .map((r) => {
-        const c = r.counts || {};
-        return `<tr>
-          <td>${escapeHtml(r.county_name || "")}</td>
-          <td>${escapeHtml(r.state || "")}</td>
-          <td>${formatNum(c["1935-40"])}</td>
-          <td>${formatNum(c["1950"])}</td>
-          <td>${formatNum(c["1960"])}</td>
-          <td>${formatNum(c["1965"])}</td>
-          <td>${formatNum(c["1970"])}</td>
-          <td>${formatNum(c["1975"])}</td>
-          <td>${formatNum(r.rows_total)}</td>
-        </tr>`;
-      })
-      .join("");
 
     if (typeTbody) {
       typeTbody.innerHTML = rows
@@ -307,13 +286,9 @@ async function initTrendsPage() {
   } catch (err) {
     console.error(err);
     if (meta) meta.textContent = "Could not load trends";
-    tbody.innerHTML =
-      '<tr><td colspan="9" class="placeholder">Could not load trends.json. Run python scripts/build_summary.py.</td></tr>';
     if (typeThead) typeThead.innerHTML = "";
-    if (typeTbody) {
-      typeTbody.innerHTML =
-        '<tr><td colspan="99" class="placeholder">Could not load trends.json. Run python scripts/build_summary.py.</td></tr>';
-    }
+    typeTbody.innerHTML =
+      '<tr><td colspan="99" class="placeholder">Could not load trends.json. Run python scripts/build_summary.py.</td></tr>';
     setChartsPlaceholder(
       chartsRoot,
       "Could not load data for charts. Run python scripts/build_summary.py.",
