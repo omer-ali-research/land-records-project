@@ -994,28 +994,6 @@ td {
   color: var(--muted);
 }
 
-.footer {
-  padding: 16px clamp(18px, 3vw, 36px) 20px;
-  font-size: 0.8125rem;
-  color: var(--muted);
-  border-top: 1px solid var(--card-border);
-  background: linear-gradient(to top, rgba(41, 54, 78, 0.92), rgba(22, 30, 46, 0.96));
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.footer code {
-  background: rgba(41, 54, 78, 0.85);
-  padding: 4px 8px;
-  border-radius: 8px;
-  border: 1px solid var(--card-border);
-  font-size: 0.78em;
-}
-
 .parcel-intro {
   margin: 0 0 8px;
   color: var(--muted);
