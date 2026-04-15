@@ -32,12 +32,14 @@
       <section class="table-panel maps-page-panel">
         <h2>County maps</h2>
         <p class="parcel-intro">
-          One map per county that has geocoded rows in the summary. The view is limited to the
-          county boundary (Census outline); areas outside are dimmed. Only points with a parseable
-          year in 1935–1975 and classified as FHA or VA are shown (same rules as the Mortgages
-          tables). Markers are fixed on the map; changing the <strong>Period</strong> dropdown
-          only filters which points are visible. <strong>All years</strong> colors markers by
-          calendar year. FHA uses × markers; VA uses circles. There is no clustering.
+          Counties are split across pages: use <strong>Previous</strong> / <strong>Next</strong>, then
+          click a county name to load that map (tiles and points are not fetched until then). Each
+          map covers one county with geocoded rows in the summary. The view is limited to the county
+          boundary (Census outline); areas outside are dimmed. Only points with a parseable year in
+          1935–1975 and classified as FHA or VA are shown (same rules as the Mortgages tables).
+          Markers are fixed on the map; changing the <strong>Period</strong> dropdown only filters
+          which points are visible. <strong>All years</strong> colors markers by calendar year. FHA
+          uses × markers; VA uses circles. There is no clustering.
         </p>
         <div id="maps-county-list" class="maps-county-list" aria-busy="true">
           <p class="maps-page-placeholder">Loading map list…</p>

@@ -128,13 +128,36 @@ function fillPointsLayer(layerGroup, geojson, selectedPeriod, allValue, canvasRe
 
 const mapsForResize = [];
 
-function initCountyBlock(container, entry, allValue) {
+/** Counties per page in the picker (buttons only; maps load on demand). */
+const MAPS_PAGE_SIZE = 12;
+
+function disposeMapInstance(m) {
+  if (!m) return;
+  const idx = mapsForResize.indexOf(m);
+  if (idx >= 0) mapsForResize.splice(idx, 1);
+  try {
+    m.remove();
+  } catch {
+    /* ignore */
+  }
+}
+
+function destroyLeafletOnCard(container) {
+  const existing = container._leafletMap;
+  if (!existing) return;
+  disposeMapInstance(existing);
+  container._leafletMap = null;
+}
+
+function initCountyBlock(container, entry, allValue, initSeq) {
   const mapEl = container.querySelector(".maps-leaflet-root");
   const select = container.querySelector("select");
   let map = null;
   let pointsLayer = null;
   let pointsGeojson = null;
   const canvasRenderer = L.canvas({ padding: 0.5 });
+  const stale = () =>
+    initSeq !== undefined && Number(container.dataset.mapsInitSeq) !== initSeq;
 
   function applyPeriod() {
     if (!map || !pointsLayer || !pointsGeojson) return;
@@ -143,6 +166,7 @@ function initCountyBlock(container, entry, allValue) {
 
   async function setup() {
     pointsGeojson = await fetchGeoJson(entry.geojson);
+    if (stale()) return;
 
     let boundaryFC = null;
     if (entry.boundary) {
@@ -152,6 +176,7 @@ function initCountyBlock(container, entry, allValue) {
         console.warn("Boundary load failed", e);
       }
     }
+    if (stale()) return;
 
     map = L.map(mapEl, {
       scrollWheelZoom: true,
@@ -215,6 +240,14 @@ function initCountyBlock(container, entry, allValue) {
     pointsLayer = L.layerGroup().addTo(map);
     applyPeriod();
 
+    if (stale()) {
+      disposeMapInstance(map);
+      map = null;
+      return;
+    }
+
+    container._leafletMap = map;
+
     setTimeout(() => map.invalidateSize(), 0);
   }
 
@@ -224,8 +257,15 @@ function initCountyBlock(container, entry, allValue) {
 
   setup().catch((e) => {
     console.error(e);
+    if (map) disposeMapInstance(map);
+    if (stale()) return;
+    container._leafletMap = null;
     mapEl.innerHTML = `<p class="maps-inline-error">${escapeHtml(e.message || String(e))}</p>`;
   });
+}
+
+function countyPickKey(c) {
+  return String(c.county_id || c.geoid || [c.county_name, c.state].filter(Boolean).join("|"));
 }
 
 async function initMapsPage() {
@@ -253,18 +293,110 @@ async function initMapsPage() {
       return;
     }
 
-    root.innerHTML = "";
+    root.innerHTML = `
+      <div class="maps-picker" role="region" aria-label="Choose a county">
+        <div class="maps-pagination-bar" id="maps-pagination-bar"></div>
+        <div class="maps-county-pick-grid" id="maps-county-pick-grid" role="group" aria-label="Counties on this page"></div>
+      </div>
+      <div id="maps-selected-wrap" class="maps-selected-wrap">
+        <p id="maps-select-hint" class="maps-page-placeholder maps-select-hint">
+          Use <strong>Previous</strong> / <strong>Next</strong> to move between pages of counties, then click a county
+          name. The map and mortgage points load only after you pick a county.
+        </p>
+      </div>
+    `;
     root.setAttribute("aria-busy", "false");
 
-    counties.forEach((c) => {
-      const title = [c.county_name, c.state].filter(Boolean).join(", ");
+    let currentPage = 0;
+    let selectedKey = null;
+    /** Avoid tearing down Leaflet when the user clicks the same county again. */
+    let lastLoadedEntryKey = null;
+    /** Bumps when starting a new map load so stale async setups do not attach. */
+    let mapInitSeq = 0;
+
+    function totalPages() {
+      return Math.max(1, Math.ceil(counties.length / MAPS_PAGE_SIZE));
+    }
+
+    function renderPicker() {
+      const pages = totalPages();
+      currentPage = Math.min(Math.max(0, currentPage), pages - 1);
+      const start = currentPage * MAPS_PAGE_SIZE;
+      const slice = counties.slice(start, start + MAPS_PAGE_SIZE);
+
+      const bar = document.getElementById("maps-pagination-bar");
+      bar.innerHTML = `
+        <button type="button" class="btn-maps-page" id="maps-page-prev" aria-label="Previous page of counties">
+          Previous
+        </button>
+        <span class="maps-pagination-status" aria-live="polite">
+          Page <strong>${currentPage + 1}</strong> of <strong>${pages}</strong>
+          <span class="maps-pagination-count">(${counties.length} counties)</span>
+        </span>
+        <button type="button" class="btn-maps-page" id="maps-page-next" aria-label="Next page of counties">
+          Next
+        </button>
+      `;
+      const prev = document.getElementById("maps-page-prev");
+      const next = document.getElementById("maps-page-next");
+      prev.disabled = currentPage <= 0;
+      next.disabled = currentPage >= pages - 1;
+      prev.addEventListener("click", () => {
+        currentPage -= 1;
+        renderPicker();
+      });
+      next.addEventListener("click", () => {
+        currentPage += 1;
+        renderPicker();
+      });
+
+      const grid = document.getElementById("maps-county-pick-grid");
+      grid.innerHTML = "";
+      for (const c of slice) {
+        const key = countyPickKey(c);
+        const title = [c.county_name, c.state].filter(Boolean).join(", ");
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "maps-county-pick-btn";
+        btn.setAttribute("aria-pressed", key === selectedKey ? "true" : "false");
+        if (key === selectedKey) btn.classList.add("is-selected");
+        btn.textContent = title;
+        btn.addEventListener("click", () => {
+          selectedKey = key;
+          renderPicker();
+          showCountyMap(c, periods, allValue);
+        });
+        grid.appendChild(btn);
+      }
+    }
+
+    function showCountyMap(entry, periodsList, allPeriodsValue) {
+      const wrap = document.getElementById("maps-selected-wrap");
+      const entryKey = countyPickKey(entry);
+      const existingCard = wrap.querySelector(".maps-county-card");
+      if (existingCard && existingCard._leafletMap && lastLoadedEntryKey === entryKey) {
+        return;
+      }
+      lastLoadedEntryKey = entryKey;
+
+      const hint = document.getElementById("maps-select-hint");
+      if (hint) hint.remove();
+
+      let card = wrap.querySelector(".maps-county-card");
+      if (!card) {
+        card = document.createElement("article");
+        card.className = "maps-county-card";
+        wrap.appendChild(card);
+      }
+
+      destroyLeafletOnCard(card);
+
+      const title = [entry.county_name, entry.state].filter(Boolean).join(", ");
       const opts = [
-        ...periods.map((p) => `<option value="${escapeHtml(p)}">${escapeHtml(p)}</option>`),
-        `<option value="${escapeHtml(allValue)}">All years</option>`,
+        ...periodsList.map((p) => `<option value="${escapeHtml(p)}">${escapeHtml(p)}</option>`),
+        `<option value="${escapeHtml(allPeriodsValue)}">All years</option>`,
       ].join("");
 
-      const card = document.createElement("article");
-      card.className = "maps-county-card";
       card.innerHTML = `
         <header class="maps-county-card__head">
           <h3>${escapeHtml(title)}</h3>
@@ -275,14 +407,17 @@ async function initMapsPage() {
                 ${opts}
               </select>
             </label>
-            <span class="maps-county-meta">${Number(c.feature_count || 0).toLocaleString()} points</span>
+            <span class="maps-county-meta">${Number(entry.feature_count || 0).toLocaleString()} points</span>
           </div>
         </header>
         <div class="maps-leaflet-root" role="application" aria-label="Map: ${escapeHtml(title)}"></div>
       `;
-      root.appendChild(card);
-      initCountyBlock(card, c, allValue);
-    });
+      const seq = ++mapInitSeq;
+      card.dataset.mapsInitSeq = String(seq);
+      initCountyBlock(card, entry, allPeriodsValue, seq);
+    }
+
+    renderPicker();
 
     window.addEventListener("resize", () => {
       mapsForResize.forEach((m) => {
