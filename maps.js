@@ -128,9 +128,6 @@ function fillPointsLayer(layerGroup, geojson, selectedPeriod, allValue, canvasRe
 
 const mapsForResize = [];
 
-/** Counties per page in the picker (buttons only; maps load on demand). */
-const MAPS_PAGE_SIZE = 12;
-
 function disposeMapInstance(m) {
   if (!m) return;
   const idx = mapsForResize.indexOf(m);
@@ -295,64 +292,26 @@ async function initMapsPage() {
 
     root.innerHTML = `
       <div class="maps-picker" role="region" aria-label="Choose a county">
-        <div class="maps-pagination-bar" id="maps-pagination-bar"></div>
-        <div class="maps-county-pick-grid" id="maps-county-pick-grid" role="group" aria-label="Counties on this page"></div>
+        <div class="maps-county-pick-grid" id="maps-county-pick-grid" role="group" aria-label="Counties with map data"></div>
       </div>
       <div id="maps-selected-wrap" class="maps-selected-wrap">
         <p id="maps-select-hint" class="maps-page-placeholder maps-select-hint">
-          Use <strong>Previous</strong> / <strong>Next</strong> to move between pages of counties, then click a county
-          name. The map and mortgage points load only after you pick a county.
+          Click a county name below. The map and mortgage points load only after you pick a county.
         </p>
       </div>
     `;
     root.setAttribute("aria-busy", "false");
 
-    let currentPage = 0;
     let selectedKey = null;
     /** Avoid tearing down Leaflet when the user clicks the same county again. */
     let lastLoadedEntryKey = null;
     /** Bumps when starting a new map load so stale async setups do not attach. */
     let mapInitSeq = 0;
 
-    function totalPages() {
-      return Math.max(1, Math.ceil(counties.length / MAPS_PAGE_SIZE));
-    }
-
     function renderPicker() {
-      const pages = totalPages();
-      currentPage = Math.min(Math.max(0, currentPage), pages - 1);
-      const start = currentPage * MAPS_PAGE_SIZE;
-      const slice = counties.slice(start, start + MAPS_PAGE_SIZE);
-
-      const bar = document.getElementById("maps-pagination-bar");
-      bar.innerHTML = `
-        <button type="button" class="btn-maps-page" id="maps-page-prev" aria-label="Previous page of counties">
-          Previous
-        </button>
-        <span class="maps-pagination-status" aria-live="polite">
-          Page <strong>${currentPage + 1}</strong> of <strong>${pages}</strong>
-          <span class="maps-pagination-count">(${counties.length} counties)</span>
-        </span>
-        <button type="button" class="btn-maps-page" id="maps-page-next" aria-label="Next page of counties">
-          Next
-        </button>
-      `;
-      const prev = document.getElementById("maps-page-prev");
-      const next = document.getElementById("maps-page-next");
-      prev.disabled = currentPage <= 0;
-      next.disabled = currentPage >= pages - 1;
-      prev.addEventListener("click", () => {
-        currentPage -= 1;
-        renderPicker();
-      });
-      next.addEventListener("click", () => {
-        currentPage += 1;
-        renderPicker();
-      });
-
       const grid = document.getElementById("maps-county-pick-grid");
       grid.innerHTML = "";
-      for (const c of slice) {
+      for (const c of counties) {
         const key = countyPickKey(c);
         const title = [c.county_name, c.state].filter(Boolean).join(", ");
         const btn = document.createElement("button");

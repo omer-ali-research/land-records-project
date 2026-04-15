@@ -16,6 +16,27 @@ async function loadSummaryJson() {
   );
 }
 
+async function loadWorkInProgressJson() {
+  const bust = `_=${Date.now()}`;
+  const candidates = [
+    `work_in_progress.json?${bust}`,
+    `../data_summary/work_in_progress.json?${bust}`,
+  ];
+  let lastStatus = null;
+  for (const url of candidates) {
+    const res = await fetch(url, { cache: "no-store" });
+    if (res.ok) {
+      return await res.json();
+    }
+    lastStatus = res.status;
+  }
+  throw new Error(
+    lastStatus != null
+      ? `Could not load work in progress (HTTP ${lastStatus})`
+      : "Could not load work in progress",
+  );
+}
+
 function filterCountyRows(counties) {
   return counties.filter((row) => {
     const name = String(row.county_name || "").trim();
@@ -413,6 +434,130 @@ async function loadMapWhenReady(el, counties) {
   }
 }
 
+function buildWipCard(s) {
+  const total = Math.max(0, Number(s.total_rows) || 0);
+  const checked = Math.max(0, Math.min(Number(s.checked_rows) || 0, total));
+  const pct = total > 0 ? Math.round((checked / total) * 1000) / 10 : 0;
+  const barPct = total > 0 ? (checked / total) * 100 : 0;
+
+  const art = document.createElement("article");
+  art.className = "wip-card";
+  const titleEsc = escapeHtml(s.label || "");
+  const url = String(s.sheet_url || "").trim();
+  const link =
+    url === ""
+      ? ""
+      : `<a class="wip-sheet-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Open sheet</a>`;
+  const warn =
+    Array.isArray(s.errors) && s.errors.length
+      ? `<ul class="wip-warn">${s.errors.map((e) => `<li>${escapeHtml(e)}</li>`).join("")}</ul>`
+      : "";
+
+  const tabsScanned = Number(s.tabs_scanned);
+  const disc = String(s.discovery_mode || "");
+  let discoveryNote = "";
+  if (Number.isFinite(tabsScanned) && tabsScanned > 0) {
+    if (disc === "full") {
+      discoveryNote = `<p class="wip-tab-note">All <strong>${tabsScanned}</strong> worksheets in this workbook were scanned.</p>`;
+    } else if (disc === "manual") {
+      discoveryNote = `<p class="wip-tab-note"><strong>${tabsScanned}</strong> worksheet(s) from config.</p>`;
+    } else if (disc === "fallback") {
+      discoveryNote = `<p class="wip-tab-note">Configured tab(s) only (<strong>${tabsScanned}</strong>) — not the full workbook yet.</p>`;
+    }
+  }
+
+  art.innerHTML = `
+    <header class="wip-card__head">
+      <h3 class="wip-card__title">${titleEsc}</h3>
+      ${link}
+    </header>
+    ${discoveryNote}
+    ${warn}
+    <div class="wip-bars" aria-label="Progress for ${titleEsc}">
+      <div class="wip-bar-block">
+        <div class="wip-bar-meta">
+          <span class="wip-bar-name">${escapeHtml(s.total_bar_label || "Total rows")}</span>
+          <span class="wip-bar-num">${total.toLocaleString()}</span>
+        </div>
+        <div class="wip-bar-track" role="presentation">
+          <div class="wip-bar-fill wip-bar-fill--total" style="width: 100%"></div>
+        </div>
+      </div>
+      <div class="wip-bar-block">
+        <div class="wip-bar-meta">
+          <span class="wip-bar-name">${escapeHtml(s.checked_bar_label || "Checked")}</span>
+          <span class="wip-bar-num">${checked.toLocaleString()} (${pct}%)</span>
+        </div>
+        <div class="wip-bar-track" role="presentation">
+          <div class="wip-bar-fill wip-bar-fill--checked" style="width: ${barPct}%"></div>
+        </div>
+      </div>
+    </div>
+  `;
+  return art;
+}
+
+function renderWorkInProgress(panel, data) {
+  const cardsRoot = panel.querySelector("#wip-cards");
+  const errEl = panel.querySelector("#wip-error");
+  const metaEl = panel.querySelector("#wip-generated");
+  if (!cardsRoot) return;
+  cardsRoot.innerHTML = "";
+  if (errEl) {
+    errEl.hidden = true;
+    errEl.textContent = "";
+  }
+  const sources = Array.isArray(data.sources) ? data.sources : [];
+  if (!sources.length) {
+    cardsRoot.innerHTML =
+      '<p class="wip-placeholder">No work-in-progress sources configured.</p>';
+    panel.hidden = false;
+    return;
+  }
+  const fallbackNames = sources
+    .filter((s) => String(s.discovery_mode || "") === "fallback")
+    .map((s) => String(s.label || "").trim())
+    .filter(Boolean);
+  if (fallbackNames.length) {
+    const namesEsc = fallbackNames.map((n) => escapeHtml(n)).join(", ");
+    const banner = document.createElement("div");
+    banner.className = "wip-discovery-hint wip-discovery-hint--global";
+    banner.innerHTML = `<p class="wip-discovery-hint__p"><strong>${namesEsc}</strong> — totals use only the tab(s) in config (full-workbook export or tab listing did not run from your machine). From the repo root run <code>python3 scripts/update_work_in_progress.py</code> (needs <code>pandas</code> for the default .xlsx path). If that fails, set <code>GOOGLE_SHEETS_API_KEY</code> or <code>scripts/.google_sheets_api_key</code>, re-run, then reload.</p>`;
+    cardsRoot.appendChild(banner);
+  }
+  const frag = document.createDocumentFragment();
+  for (const s of sources) {
+    frag.appendChild(buildWipCard(s));
+  }
+  cardsRoot.appendChild(frag);
+  if (data.generated_at && metaEl) {
+    metaEl.textContent = `Sheet totals updated ${new Date(data.generated_at).toLocaleString()}`;
+  }
+  panel.hidden = false;
+}
+
+async function loadAndRenderWorkInProgress() {
+  const panel = document.getElementById("wip-panel");
+  if (!panel) return;
+  const errEl = panel.querySelector("#wip-error");
+  const metaEl = panel.querySelector("#wip-generated");
+  try {
+    const data = await loadWorkInProgressJson();
+    renderWorkInProgress(panel, data);
+  } catch (e) {
+    console.error(e);
+    panel.hidden = false;
+    if (errEl) {
+      errEl.hidden = false;
+      errEl.textContent =
+        "Work-in-progress totals could not be loaded. Run python scripts/update_work_in_progress.py from the repo root (then refresh this page).";
+    }
+    if (metaEl) metaEl.textContent = "";
+    const cardsRoot = panel.querySelector("#wip-cards");
+    if (cardsRoot) cardsRoot.innerHTML = "";
+  }
+}
+
 async function initOverviewPage() {
   const generatedAtEl = document.getElementById("generated-at");
   const totalsEl = {
@@ -438,6 +583,7 @@ async function initOverviewPage() {
       generatedAtEl.textContent = "Could not load summary";
     }
   }
+  void loadAndRenderWorkInProgress();
 }
 
 async function initCountiesPage() {

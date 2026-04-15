@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-04-15T17:13:47.392485+00:00",
+  "sources": [
+    {
+      "id": "maricopa",
+      "label": "Maricopa, AZ (Phoenix)",
+      "sheet_url": "https://docs.google.com/spreadsheets/d/1zXWeQpx_DNKKg2ptFpKuI7ZIRkOOgF0-Dn134o58lrI/edit?gid=2067439828",
+      "total_rows": 44703,
+      "checked_rows": 21565,
+      "total_bar_label": "Rows with data (all tabs)",
+      "checked_bar_label": "Pipeline output checked (checked_by)",
+      "tabs_scanned": 28,
+      "discovery_mode": "full",
+      "errors": [
+        "'Sheet9' (#28 of 28): column 'checked_by' not found in header row 1"
+      ]
+    },
+    {
+      "id": "bexar",
+      "label": "Bexar, TX (San Antonio)",
+      "sheet_url": "https://docs.google.com/spreadsheets/d/1kks1JuqzHdseZ9RcU7EUU_ZtCijRJ_ipEUTmEg3Rsjk/edit?gid=0",
+      "total_rows": 27251,
+      "checked_rows": 18060,
+      "total_bar_label": "Rows with data (all tabs)",
+      "checked_bar_label": "Pipeline output checked (checked_by)",
+      "tabs_scanned": 9,
+      "discovery_mode": "full",
+      "errors": []
+    },
+    {
+      "id": "guilford",
+      "label": "Guilford, NC (Greensboro)",
+      "sheet_url": "https://docs.google.com/spreadsheets/d/1BAvjFXu5Cwwzp9TkYq_GDh331yVnbcFMv7myJsKZKTo/edit?gid=2066825971",
+      "total_rows": 6065,
+      "checked_rows": 5641,
+      "total_bar_label": "Rows with data (ALL tab)",
+      "checked_bar_label": "Addresses checked (address_check)",
+      "tabs_scanned": 1,
+      "discovery_mode": "manual",
+      "errors": []
+    }
+  ]
+}
