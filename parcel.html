@@ -31,10 +31,9 @@
       <section class="page-panel">
         <h2>Parcel data</h2>
         <p class="parcel-intro">
-          Each subfolder under your synced <code>parcel_data</code> folder (folder name =
-          county) is listed below—usually
-          <code>~/Library/CloudStorage/Dropbox/parcel_data</code> or
-          <code>~/Dropbox/parcel_data</code> on a Mac. The table is built when you run
+          Each subfolder under your local <code>parcel_data</code> directory (folder name =
+          county) is listed below. The path is configured in <code>scripts/build_summary.py</code>
+          (<code>PARCEL_DATA_DIR</code>). The table is built when you run
           <code>python scripts/build_summary.py</code>.
           Legal description filled is the percentage of rows with a non-empty value in the
           legal-description column (name variants like <code>legal_description</code> are

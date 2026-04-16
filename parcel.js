@@ -91,7 +91,7 @@ async function initParcelPage() {
     if (countLine) {
       countLine.textContent =
         n === 0
-          ? "No county folders found yet. Sync Dropbox, run the build script, or set PARCEL_DATA_DIR in scripts/build_summary.py (expected ~/Library/CloudStorage/Dropbox/parcel_data or ~/Dropbox/parcel_data)."
+          ? "No county folders found yet. Run the build script after pointing PARCEL_DATA_DIR in scripts/build_summary.py at your local parcel_data directory."
           : `${n} ${n === 1 ? "county" : "counties"} with parcel data (by folder name).`;
     }
 

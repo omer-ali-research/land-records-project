@@ -443,11 +443,6 @@ function buildWipCard(s) {
   const art = document.createElement("article");
   art.className = "wip-card";
   const titleEsc = escapeHtml(s.label || "");
-  const url = String(s.sheet_url || "").trim();
-  const link =
-    url === ""
-      ? ""
-      : `<a class="wip-sheet-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Open sheet</a>`;
   const warn =
     Array.isArray(s.errors) && s.errors.length
       ? `<ul class="wip-warn">${s.errors.map((e) => `<li>${escapeHtml(e)}</li>`).join("")}</ul>`
@@ -469,7 +464,6 @@ function buildWipCard(s) {
   art.innerHTML = `
     <header class="wip-card__head">
       <h3 class="wip-card__title">${titleEsc}</h3>
-      ${link}
     </header>
     ${discoveryNote}
     ${warn}
@@ -522,7 +516,7 @@ function renderWorkInProgress(panel, data) {
     const namesEsc = fallbackNames.map((n) => escapeHtml(n)).join(", ");
     const banner = document.createElement("div");
     banner.className = "wip-discovery-hint wip-discovery-hint--global";
-    banner.innerHTML = `<p class="wip-discovery-hint__p"><strong>${namesEsc}</strong> — totals use only the tab(s) in config (full-workbook export or tab listing did not run from your machine). From the repo root run <code>python3 scripts/update_work_in_progress.py</code> (needs <code>pandas</code> for the default .xlsx path). If that fails, set <code>GOOGLE_SHEETS_API_KEY</code> or <code>scripts/.google_sheets_api_key</code>, re-run, then reload.</p>`;
+    banner.innerHTML = `<p class="wip-discovery-hint__p"><strong>${namesEsc}</strong> — totals use only the tab(s) in config (full-workbook export or tab listing did not run from your machine). From the repo root run <code>python3 scripts/update_work_in_progress.py</code> (see that script for dependencies and optional API credentials), re-run, then reload.</p>`;
     cardsRoot.appendChild(banner);
   }
   const frag = document.createDocumentFragment();
@@ -531,7 +525,7 @@ function renderWorkInProgress(panel, data) {
   }
   cardsRoot.appendChild(frag);
   if (data.generated_at && metaEl) {
-    metaEl.textContent = `Sheet totals updated ${new Date(data.generated_at).toLocaleString()}`;
+    metaEl.textContent = `Progress totals updated ${new Date(data.generated_at).toLocaleString()}`;
   }
   panel.hidden = false;
 }

@@ -4,7 +4,6 @@
     {
       "id": "maricopa",
       "label": "Maricopa, AZ (Phoenix)",
-      "sheet_url": "https://docs.google.com/spreadsheets/d/1zXWeQpx_DNKKg2ptFpKuI7ZIRkOOgF0-Dn134o58lrI/edit?gid=2067439828",
       "total_rows": 44703,
       "checked_rows": 21565,
       "total_bar_label": "Rows with data (all tabs)",
@@ -18,7 +17,6 @@
     {
       "id": "bexar",
       "label": "Bexar, TX (San Antonio)",
-      "sheet_url": "https://docs.google.com/spreadsheets/d/1kks1JuqzHdseZ9RcU7EUU_ZtCijRJ_ipEUTmEg3Rsjk/edit?gid=0",
       "total_rows": 27251,
       "checked_rows": 18060,
       "total_bar_label": "Rows with data (all tabs)",
@@ -30,7 +28,6 @@
     {
       "id": "guilford",
       "label": "Guilford, NC (Greensboro)",
-      "sheet_url": "https://docs.google.com/spreadsheets/d/1BAvjFXu5Cwwzp9TkYq_GDh331yVnbcFMv7myJsKZKTo/edit?gid=2066825971",
       "total_rows": 6065,
       "checked_rows": 5641,
       "total_bar_label": "Rows with data (ALL tab)",
