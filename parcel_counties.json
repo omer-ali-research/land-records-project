@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-04-08T17:52:46.967199",
+  "generated_at": "2026-04-24T20:03:39.395230",
   "parcel_data_root": "",
   "dropbox_folder_url": "",
   "count": 24,
   "counties": [
     {
       "folder": "az_maricopa",
-      "county_name": "Az Maricopa",
+      "county_name": "AZ Maricopa",
       "rows_total": 1726986,
       "legal_description_populated": 793530,
       "legal_description_pct": 45.9,
@@ -18,7 +18,7 @@
     },
     {
       "folder": "in_marion",
-      "county_name": "In Marion",
+      "county_name": "IN Marion",
       "rows_total": 691132,
       "legal_description_populated": 691050,
       "legal_description_pct": 100.0,
@@ -31,7 +31,7 @@
     },
     {
       "folder": "ma_hampden",
-      "county_name": "Ma Hampden",
+      "county_name": "MA Hampden",
       "rows_total": 331128,
       "legal_description_populated": 0,
       "legal_description_pct": 0.0,
@@ -44,7 +44,7 @@
     },
     {
       "folder": "md_anne_arundel",
-      "county_name": "Md Anne Arundel",
+      "county_name": "MD Anne Arundel",
       "rows_total": 281737,
       "legal_description_populated": 266251,
       "legal_description_pct": 94.5,
@@ -56,7 +56,7 @@
     },
     {
       "folder": "md_baltimore",
-      "county_name": "Md Baltimore",
+      "county_name": "MD Baltimore",
       "rows_total": 237711,
       "legal_description_populated": 157848,
       "legal_description_pct": 66.4,
@@ -68,7 +68,7 @@
     },
     {
       "folder": "md_baltimore_county",
-      "county_name": "Md Baltimore County",
+      "county_name": "MD Baltimore County",
       "rows_total": 371650,
       "legal_description_populated": 321009,
       "legal_description_pct": 86.4,
@@ -80,7 +80,7 @@
     },
     {
       "folder": "md_howard",
-      "county_name": "Md Howard",
+      "county_name": "MD Howard",
       "rows_total": 96715,
       "legal_description_populated": 96466,
       "legal_description_pct": 99.7,
@@ -92,7 +92,7 @@
     },
     {
       "folder": "md_montgomery",
-      "county_name": "Md Montgomery",
+      "county_name": "MD Montgomery",
       "rows_total": 285885,
       "legal_description_populated": 279822,
       "legal_description_pct": 97.9,
@@ -104,7 +104,7 @@
     },
     {
       "folder": "md_prince_georges",
-      "county_name": "Md Prince Georges",
+      "county_name": "MD Prince Georges",
       "rows_total": 347504,
       "legal_description_populated": 0,
       "legal_description_pct": 0.0,
@@ -116,7 +116,7 @@
     },
     {
       "folder": "nc_durham",
-      "county_name": "Nc Durham",
+      "county_name": "NC Durham",
       "rows_total": 254010,
       "legal_description_populated": 254010,
       "legal_description_pct": 100.0,
@@ -129,7 +129,7 @@
     },
     {
       "folder": "nc_forsyth",
-      "county_name": "Nc Forsyth",
+      "county_name": "NC Forsyth",
       "rows_total": 165124,
       "legal_description_populated": 0,
       "legal_description_pct": 0.0,
@@ -141,7 +141,7 @@
     },
     {
       "folder": "nc_guilford",
-      "county_name": "Nc Guilford",
+      "county_name": "NC Guilford",
       "rows_total": 439388,
       "legal_description_populated": 437582,
       "legal_description_pct": 99.6,
@@ -154,7 +154,7 @@
     },
     {
       "folder": "nc_mecklenburg",
-      "county_name": "Nc Mecklenburg",
+      "county_name": "NC Mecklenburg",
       "rows_total": 818754,
       "legal_description_populated": 710558,
       "legal_description_pct": 86.8,
@@ -167,7 +167,7 @@
     },
     {
       "folder": "nc_wake",
-      "county_name": "Nc Wake",
+      "county_name": "NC Wake",
       "rows_total": 420154,
       "legal_description_populated": 419957,
       "legal_description_pct": 100.0,
@@ -179,7 +179,7 @@
     },
     {
       "folder": "nh_hillsborough",
-      "county_name": "Nh Hillsborough",
+      "county_name": "NH Hillsborough",
       "rows_total": 159438,
       "legal_description_populated": 0,
       "legal_description_pct": 0.0,
@@ -191,7 +191,7 @@
     },
     {
       "folder": "ny_onondaga",
-      "county_name": "Ny Onondaga",
+      "county_name": "NY Onondaga",
       "rows_total": 181805,
       "legal_description_populated": 0,
       "legal_description_pct": 0.0,
@@ -203,7 +203,7 @@
     },
     {
       "folder": "oh_summit",
-      "county_name": "Oh Summit",
+      "county_name": "OH Summit",
       "rows_total": 520852,
       "legal_description_populated": 519600,
       "legal_description_pct": 99.8,
@@ -216,7 +216,7 @@
     },
     {
       "folder": "ok_tulsa",
-      "county_name": "Ok Tulsa",
+      "county_name": "OK Tulsa",
       "rows_total": 561082,
       "legal_description_populated": 550382,
       "legal_description_pct": 98.1,
@@ -230,7 +230,7 @@
     },
     {
       "folder": "pa_allegheny",
-      "county_name": "Pa Allegheny",
+      "county_name": "PA Allegheny",
       "rows_total": 1169782,
       "legal_description_populated": 1165008,
       "legal_description_pct": 99.6,
@@ -243,7 +243,7 @@
     },
     {
       "folder": "pa_berks",
-      "county_name": "Pa Berks",
+      "county_name": "PA Berks",
       "rows_total": 313204,
       "legal_description_populated": 0,
       "legal_description_pct": 0.0,
@@ -256,7 +256,7 @@
     },
     {
       "folder": "tx_bexar",
-      "county_name": "Tx Bexar",
+      "county_name": "TX Bexar",
       "rows_total": 684238,
       "legal_description_populated": 656677,
       "legal_description_pct": 96.0,
@@ -268,7 +268,7 @@
     },
     {
       "folder": "tx_galveston",
-      "county_name": "Tx Galveston",
+      "county_name": "TX Galveston",
       "rows_total": 372740,
       "legal_description_populated": 368146,
       "legal_description_pct": 98.8,
@@ -281,7 +281,7 @@
     },
     {
       "folder": "tx_tarrant",
-      "county_name": "Tx Tarrant",
+      "county_name": "TX Tarrant",
       "rows_total": 729201,
       "legal_description_populated": 706176,
       "legal_description_pct": 96.8,
@@ -293,7 +293,7 @@
     },
     {
       "folder": "wi_dane",
-      "county_name": "Wi Dane",
+      "county_name": "WI Dane",
       "rows_total": 218463,
       "legal_description_populated": 136592,
       "legal_description_pct": 62.5,

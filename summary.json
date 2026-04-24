@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-08T17:34:19.008959",
+  "generated_at": "2026-04-24T20:03:51.664278",
   "source_sheet": "",
   "target_counties_tab": "target counties",
   "dropbox_data_folder_url": "",
@@ -13,9 +13,9 @@
       "ON HOLD": 11,
       "TABLED": 8,
       "NOT SCANNED": 6,
-      "PENDING": 4,
+      "PENDING": 5,
       "NOT STARTED": 3,
-      "TOO PRICEY": 2
+      "TOO PRICEY": 1
     }
   },
   "counties": [
@@ -3096,7 +3096,7 @@
       "county_name": "Whatcom County",
       "central_city": "Bellingham",
       "st": "WA",
-      "status": "5 - TOO PRICEY",
+      "status": "2 - PENDING",
       "state": "WA",
       "geoid": "53073",
       "file_name": "",
@@ -3109,7 +3109,7 @@
       "target counties__Regrid": null,
       "target counties__Contact": "Kate",
       "target counties__Central City": "Bellingham",
-      "target counties__Status": "5 - TOO PRICEY",
+      "target counties__Status": "2 - PENDING",
       "target counties__Notes": "Kate making final negotiations attempts ",
       "target counties__Data availability": "Available",
       "target counties__Paid or estimated amount": null,
