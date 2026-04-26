@@ -623,9 +623,44 @@ body {
 }
 
 .acquired-todo-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.acquired-todo-state-group {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: start;
+  gap: 12px;
+}
+
+.acquired-todo-state-head {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding-top: 9px;
+}
+
+.acquired-todo-state-code {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.acquired-todo-state-count {
+  font-size: 0.74rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.acquired-todo-state-chips {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: 8px;
+  min-width: 0;
 }
 
 .acquired-todo-chip {
@@ -648,29 +683,22 @@ body {
   white-space: nowrap;
 }
 
-.acquired-todo-meta {
+.acquired-todo-city {
   font-size: 0.76rem;
   color: var(--muted);
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.acquired-todo-state {
-  font-weight: 600;
-  letter-spacing: 0.04em;
-}
-
-.acquired-todo-sep {
-  color: var(--border-subtle);
-}
-
-.acquired-todo-city {
-  overflow: hidden;
-  text-overflow: ellipsis;
+@media (max-width: 520px) {
+  .acquired-todo-state-group {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .acquired-todo-state-head {
+    padding-top: 0;
+  }
 }
 
 .wip-placeholder {

@@ -795,21 +795,43 @@ function renderAcquiredNotDigitized(summary, wipData) {
   if (countEl) {
     countEl.textContent = `${list.length} ${list.length === 1 ? "county" : "counties"}`;
   }
-  grid.innerHTML = list
-    .map((c) => {
-      const name = escapeHtml(c.county_name || "");
-      const state = escapeHtml(c.state || c.st || "");
-      const city = escapeHtml(getRowCentralCity(c) || "");
-      const cityHtml = city
-        ? `<span class="acquired-todo-city">${city}</span>`
-        : "";
+
+  // Group by state (alphabetical), counties within a state already sorted by name.
+  const byState = new Map();
+  for (const c of list) {
+    const state = String(c.state || c.st || "").trim().toUpperCase() || "—";
+    if (!byState.has(state)) byState.set(state, []);
+    byState.get(state).push(c);
+  }
+  const stateGroups = [...byState.entries()].sort((a, b) =>
+    a[0].localeCompare(b[0]),
+  );
+
+  grid.innerHTML = stateGroups
+    .map(([state, counties]) => {
+      const stateEsc = escapeHtml(state);
+      const chipsHtml = counties
+        .map((c) => {
+          const name = escapeHtml(c.county_name || "");
+          const city = escapeHtml(getRowCentralCity(c) || "");
+          const cityHtml = city
+            ? `<div class="acquired-todo-city">${city}</div>`
+            : "";
+          return `
+            <div class="acquired-todo-chip">
+              <div class="acquired-todo-name">${name}</div>
+              ${cityHtml}
+            </div>`;
+        })
+        .join("");
       return `
-        <div class="acquired-todo-chip">
-          <div class="acquired-todo-name">${name}</div>
-          <div class="acquired-todo-meta">
-            <span class="acquired-todo-state">${state}</span>${cityHtml ? "<span class=\"acquired-todo-sep\" aria-hidden=\"true\">·</span>" + cityHtml : ""}
-          </div>
-        </div>`;
+        <section class="acquired-todo-state-group" aria-label="${stateEsc}">
+          <header class="acquired-todo-state-head">
+            <span class="acquired-todo-state-code">${stateEsc}</span>
+            <span class="acquired-todo-state-count">${counties.length}</span>
+          </header>
+          <div class="acquired-todo-state-chips">${chipsHtml}</div>
+        </section>`;
     })
     .join("");
 }
