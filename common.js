@@ -752,6 +752,31 @@ function buildWipCountyIdSet(wipData) {
   return out;
 }
 
+/**
+ * Counties to emphasize in "Acquired but not yet digitized" (normalized county_id).
+ * Includes Orange County variants (CA / FL / NC) if they appear in that section.
+ */
+const ACQUIRED_TODO_HIGH_PRIORITY_IDS = new Set([
+  "hennepin county, mn",
+  "dane county, wi",
+  "shelby county, tn",
+  "whatcom county, wa",
+  "orange county, ca",
+  "orange county, fl",
+  "orange county, nc",
+  "mobile county, al",
+]);
+
+function isAcquiredTodoHighPriority(countyRow) {
+  const cid = String(
+    countyRow.county_id ||
+      `${countyRow.county_name}, ${countyRow.state || countyRow.st || ""}`,
+  )
+    .trim()
+    .toLowerCase();
+  return ACQUIRED_TODO_HIGH_PRIORITY_IDS.has(cid);
+}
+
 function findAcquiredNotDigitized(summary, wipData) {
   const counties = Array.isArray(summary?.counties) ? summary.counties : [];
   const wipKeys = buildWipCountyIdSet(wipData);
@@ -806,6 +831,18 @@ function renderAcquiredNotDigitized(summary, wipData) {
   const stateGroups = [...byState.entries()].sort((a, b) =>
     a[0].localeCompare(b[0]),
   );
+  for (const [, counties] of stateGroups) {
+    counties.sort((a, b) => {
+      const pa = isAcquiredTodoHighPriority(a) ? 0 : 1;
+      const pb = isAcquiredTodoHighPriority(b) ? 0 : 1;
+      if (pa !== pb) return pa - pb;
+      return String(a.county_name || "").localeCompare(
+        String(b.county_name || ""),
+        undefined,
+        { sensitivity: "base" },
+      );
+    });
+  }
 
   grid.innerHTML = stateGroups
     .map(([state, counties]) => {
@@ -817,8 +854,11 @@ function renderAcquiredNotDigitized(summary, wipData) {
           const cityHtml = city
             ? `<div class="acquired-todo-city">${city}</div>`
             : "";
+          const chipClass = isAcquiredTodoHighPriority(c)
+            ? "acquired-todo-chip acquired-todo-chip--priority"
+            : "acquired-todo-chip";
           return `
-            <div class="acquired-todo-chip">
+            <div class="${chipClass}">
               <div class="acquired-todo-name">${name}</div>
               ${cityHtml}
             </div>`;

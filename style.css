@@ -615,6 +615,21 @@ body {
   max-width: 58rem;
 }
 
+.acquired-todo-priority-swatch {
+  display: inline-block;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 3px;
+  vertical-align: middle;
+  margin: 0 0.12rem;
+  background: linear-gradient(
+    155deg,
+    rgba(251, 191, 36, 0.88),
+    rgba(251, 191, 36, 0.42)
+  );
+  border: 1px solid rgba(251, 191, 36, 0.5);
+}
+
 .acquired-todo-count {
   color: var(--text);
   font-weight: 600;
@@ -672,6 +687,16 @@ body {
   flex-direction: column;
   gap: 2px;
   min-width: 0;
+}
+
+.acquired-todo-chip--priority {
+  border-color: rgba(251, 191, 36, 0.55);
+  background: linear-gradient(
+    155deg,
+    rgba(251, 191, 36, 0.16),
+    rgba(15, 23, 42, 0.52)
+  );
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.1);
 }
 
 .acquired-todo-name {
