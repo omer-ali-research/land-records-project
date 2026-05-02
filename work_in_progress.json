@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-01T14:19:13.685162+00:00",
+  "generated_at": "2026-05-02T14:12:24.767149+00:00",
   "sources": [
     {
       "id": "maricopa",
@@ -29,7 +29,7 @@
       "id": "guilford",
       "label": "Guilford, NC (Greensboro)",
       "total_rows": 6065,
-      "checked_rows": 5641,
+      "checked_rows": 5642,
       "total_bar_label": "Rows with data (ALL tab)",
       "checked_bar_label": "Addresses checked (address_check)",
       "tabs_scanned": 1,
