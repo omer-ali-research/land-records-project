@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-24T20:04:07.713907",
+  "generated_at": "2026-05-04T23:04:18.323999",
   "periods": [
     "1935-40",
     "1950",
@@ -15,6 +15,7 @@
       "county_name": "Baltimore City",
       "state": "MD",
       "geoid": "24510",
+      "maps_slug": "baltimore_city_md",
       "geojson": "maps/baltimore_city_md.geojson",
       "boundary": "maps/boundaries/baltimore_city_md_boundary.geojson",
       "feature_count": 13677,
@@ -28,14 +29,19 @@
           -76.519414
         ]
       ],
-      "maps_slug": "baltimore_city_md",
-      "census_tract_black_share": "maps/census_tracts/baltimore_city_md_black_share_1970.geojson"
+      "census_tract_black_share_by_year": {
+        "1940": "maps/census_tracts/baltimore_city_md_black_share_1940.geojson",
+        "1950": "maps/census_tracts/baltimore_city_md_black_share_1950.geojson",
+        "1960": "maps/census_tracts/baltimore_city_md_black_share_1960.geojson",
+        "1970": "maps/census_tracts/baltimore_city_md_black_share_1970.geojson"
+      }
     },
     {
       "county_id": "Berks County, PA",
       "county_name": "Berks County",
       "state": "PA",
       "geoid": "42011",
+      "maps_slug": "berks_pa",
       "geojson": "maps/berks_pa.geojson",
       "boundary": "maps/boundaries/berks_pa_boundary.geojson",
       "feature_count": 2182,
@@ -49,14 +55,17 @@
           -75.54889376
         ]
       ],
-      "maps_slug": "berks_pa",
-      "census_tract_black_share": "maps/census_tracts/berks_pa_black_share_1970.geojson"
+      "census_tract_black_share_by_year": {
+        "1960": "maps/census_tracts/berks_pa_black_share_1960.geojson",
+        "1970": "maps/census_tracts/berks_pa_black_share_1970.geojson"
+      }
     },
     {
       "county_id": "Galveston County, TX",
       "county_name": "Galveston County",
       "state": "TX",
       "geoid": "48167",
+      "maps_slug": "galveston_tx",
       "geojson": "maps/galveston_tx.geojson",
       "boundary": "maps/boundaries/galveston_tx_boundary.geojson",
       "feature_count": 2328,
@@ -70,14 +79,17 @@
           -94.345156645
         ]
       ],
-      "maps_slug": "galveston_tx",
-      "census_tract_black_share": "maps/census_tracts/galveston_tx_black_share_1970.geojson"
+      "census_tract_black_share_by_year": {
+        "1960": "maps/census_tracts/galveston_tx_black_share_1960.geojson",
+        "1970": "maps/census_tracts/galveston_tx_black_share_1970.geojson"
+      }
     },
     {
       "county_id": "Guilford County, NC",
       "county_name": "Guilford County",
       "state": "NC",
       "geoid": "37081",
+      "maps_slug": "guilford_nc",
       "geojson": "maps/guilford_nc.geojson",
       "boundary": "maps/boundaries/guilford_nc_boundary.geojson",
       "feature_count": 4048,
@@ -91,14 +103,18 @@
           -79.517162845
         ]
       ],
-      "maps_slug": "guilford_nc",
-      "census_tract_black_share": "maps/census_tracts/guilford_nc_black_share_1970.geojson"
+      "census_tract_black_share_by_year": {
+        "1950": "maps/census_tracts/guilford_nc_black_share_1950.geojson",
+        "1960": "maps/census_tracts/guilford_nc_black_share_1960.geojson",
+        "1970": "maps/census_tracts/guilford_nc_black_share_1970.geojson"
+      }
     },
     {
       "county_id": "Hampden County, MA",
       "county_name": "Hampden County",
       "state": "MA",
       "geoid": "25013",
+      "maps_slug": "hampden_ma",
       "geojson": "maps/hampden_ma.geojson",
       "boundary": "maps/boundaries/hampden_ma_boundary.geojson",
       "feature_count": 3766,
@@ -112,14 +128,18 @@
           149.517772865
         ]
       ],
-      "maps_slug": "hampden_ma",
-      "census_tract_black_share": "maps/census_tracts/hampden_ma_black_share_1970.geojson"
+      "census_tract_black_share_by_year": {
+        "1950": "maps/census_tracts/hampden_ma_black_share_1950.geojson",
+        "1960": "maps/census_tracts/hampden_ma_black_share_1960.geojson",
+        "1970": "maps/census_tracts/hampden_ma_black_share_1970.geojson"
+      }
     },
     {
       "county_id": "Mecklenburg County, NC",
       "county_name": "Mecklenburg County",
       "state": "NC",
       "geoid": "37119",
+      "maps_slug": "mecklenburg_nc",
       "geojson": "maps/mecklenburg_nc.geojson",
       "boundary": "maps/boundaries/mecklenburg_nc_boundary.geojson",
       "feature_count": 10723,
@@ -133,14 +153,17 @@
           -78.576380915
         ]
       ],
-      "maps_slug": "mecklenburg_nc",
-      "census_tract_black_share": "maps/census_tracts/mecklenburg_nc_black_share_1970.geojson"
+      "census_tract_black_share_by_year": {
+        "1960": "maps/census_tracts/mecklenburg_nc_black_share_1960.geojson",
+        "1970": "maps/census_tracts/mecklenburg_nc_black_share_1970.geojson"
+      }
     },
     {
       "county_id": "Peoria County, IL",
       "county_name": "Peoria County",
       "state": "IL",
       "geoid": "17143",
+      "maps_slug": "peoria_il",
       "geojson": "maps/peoria_il.geojson",
       "boundary": "maps/boundaries/peoria_il_boundary.geojson",
       "feature_count": 1512,
@@ -154,14 +177,17 @@
           -89.4575407
         ]
       ],
-      "maps_slug": "peoria_il",
-      "census_tract_black_share": "maps/census_tracts/peoria_il_black_share_1970.geojson"
+      "census_tract_black_share_by_year": {
+        "1960": "maps/census_tracts/peoria_il_black_share_1960.geojson",
+        "1970": "maps/census_tracts/peoria_il_black_share_1970.geojson"
+      }
     },
     {
       "county_id": "Philadelphia County, PA",
       "county_name": "Philadelphia County",
       "state": "PA",
       "geoid": "42101",
+      "maps_slug": "philadelphia_pa",
       "geojson": "maps/philadelphia_pa.geojson",
       "boundary": "maps/boundaries/philadelphia_pa_boundary.geojson",
       "feature_count": 6289,
@@ -175,14 +201,19 @@
           -74.9496494
         ]
       ],
-      "maps_slug": "philadelphia_pa",
-      "census_tract_black_share": "maps/census_tracts/philadelphia_pa_black_share_1970.geojson"
+      "census_tract_black_share_by_year": {
+        "1940": "maps/census_tracts/philadelphia_pa_black_share_1940.geojson",
+        "1950": "maps/census_tracts/philadelphia_pa_black_share_1950.geojson",
+        "1960": "maps/census_tracts/philadelphia_pa_black_share_1960.geojson",
+        "1970": "maps/census_tracts/philadelphia_pa_black_share_1970.geojson"
+      }
     },
     {
       "county_id": "Tulsa County, OK",
       "county_name": "Tulsa County",
       "state": "OK",
       "geoid": "40143",
+      "maps_slug": "tulsa_ok",
       "geojson": "maps/tulsa_ok.geojson",
       "boundary": "maps/boundaries/tulsa_ok_boundary.geojson",
       "feature_count": 19447,
@@ -196,8 +227,10 @@
           -72.768534045
         ]
       ],
-      "maps_slug": "tulsa_ok",
-      "census_tract_black_share": "maps/census_tracts/tulsa_ok_black_share_1970.geojson"
+      "census_tract_black_share_by_year": {
+        "1960": "maps/census_tracts/tulsa_ok_black_share_1960.geojson",
+        "1970": "maps/census_tracts/tulsa_ok_black_share_1970.geojson"
+      }
     }
   ]
 }
