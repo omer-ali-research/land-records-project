@@ -758,21 +758,110 @@ function buildWipCountyIdSet(wipData) {
 const ACQUIRED_TODO_HIGH_PRIORITY_IDS = new Set([
   "hennepin county, mn",
   "dane county, wi",
-  "shelby county, tn",
   "baltimore county, md",
-  "whatcom county, wa",
-  "orange county, fl",
   "mobile county, al",
 ]);
 
-function isAcquiredTodoHighPriority(countyRow) {
-  const cid = String(
+/** Shown under "High priority but not acquired" while tracker status is not ACQUIRED. */
+const HIGH_PRIORITY_NOT_ACQUIRED_ORDER = [
+  "orange county, fl",
+  "whatcom county, wa",
+];
+
+function overviewCountyIdKey(countyRow) {
+  return String(
     countyRow.county_id ||
       `${countyRow.county_name}, ${countyRow.state || countyRow.st || ""}`,
   )
     .trim()
     .toLowerCase();
-  return ACQUIRED_TODO_HIGH_PRIORITY_IDS.has(cid);
+}
+
+function isAcquiredTodoHighPriority(countyRow) {
+  return ACQUIRED_TODO_HIGH_PRIORITY_IDS.has(overviewCountyIdKey(countyRow));
+}
+
+function findHighPriorityNotAcquired(summary) {
+  const counties = Array.isArray(summary?.counties) ? summary.counties : [];
+  const byId = new Map();
+  for (const c of counties) {
+    byId.set(overviewCountyIdKey(c), c);
+  }
+  const out = [];
+  for (const cid of HIGH_PRIORITY_NOT_ACQUIRED_ORDER) {
+    const c = byId.get(cid);
+    if (!c) continue;
+    if (statusCategory(c.status).toUpperCase() === "ACQUIRED") continue;
+    out.push(c);
+  }
+  return out;
+}
+
+function renderHighPriorityNotAcquired(summary) {
+  const panel = document.getElementById("priority-not-acquired-panel");
+  if (!panel) return;
+  const grid = panel.querySelector("#priority-not-acquired-grid");
+  const countEl = panel.querySelector("#priority-not-acquired-count");
+  if (!grid) return;
+
+  const list = findHighPriorityNotAcquired(summary);
+  if (!list.length) {
+    panel.hidden = true;
+    grid.innerHTML = "";
+    if (countEl) countEl.textContent = "";
+    return;
+  }
+  panel.hidden = false;
+  if (countEl) {
+    countEl.textContent = `${list.length} ${list.length === 1 ? "county" : "counties"}`;
+  }
+
+  const byState = new Map();
+  for (const c of list) {
+    const state = String(c.state || c.st || "").trim().toUpperCase() || "—";
+    if (!byState.has(state)) byState.set(state, []);
+    byState.get(state).push(c);
+  }
+  const stateGroups = [...byState.entries()].sort((a, b) =>
+    a[0].localeCompare(b[0]),
+  );
+  for (const [, counties] of stateGroups) {
+    counties.sort((a, b) =>
+      String(a.county_name || "").localeCompare(
+        String(b.county_name || ""),
+        undefined,
+        { sensitivity: "base" },
+      ),
+    );
+  }
+
+  grid.innerHTML = stateGroups
+    .map(([state, counties]) => {
+      const stateEsc = escapeHtml(state);
+      const chipsHtml = counties
+        .map((c) => {
+          const name = escapeHtml(c.county_name || "");
+          const city = escapeHtml(getRowCentralCity(c) || "");
+          const cityHtml = city
+            ? `<div class="acquired-todo-city">${city}</div>`
+            : "";
+          return `
+            <div class="acquired-todo-chip">
+              <div class="acquired-todo-name">${name}</div>
+              ${cityHtml}
+            </div>`;
+        })
+        .join("");
+      return `
+        <section class="acquired-todo-state-group" aria-label="${stateEsc}">
+          <header class="acquired-todo-state-head">
+            <span class="acquired-todo-state-code">${stateEsc}</span>
+            <span class="acquired-todo-state-count">${counties.length}</span>
+          </header>
+          <div class="acquired-todo-state-chips">${chipsHtml}</div>
+        </section>`;
+    })
+    .join("");
 }
 
 function findAcquiredNotDigitized(summary, wipData) {
@@ -782,11 +871,7 @@ function findAcquiredNotDigitized(summary, wipData) {
   for (const c of counties) {
     if (statusCategory(c.status).toUpperCase() !== "ACQUIRED") continue;
     if ((Number(c.rows_total) || 0) > 0) continue;
-    const cid = String(
-      c.county_id || `${c.county_name}, ${c.state || c.st || ""}`,
-    )
-      .trim()
-      .toLowerCase();
+    const cid = overviewCountyIdKey(c);
     if (wipKeys.has(cid)) continue;
     out.push(c);
   }
@@ -877,7 +962,10 @@ function renderAcquiredNotDigitized(summary, wipData) {
 async function loadAndRenderWorkInProgress(summary) {
   const panel = document.getElementById("wip-panel");
   if (!panel) {
-    if (summary) renderAcquiredNotDigitized(summary, null);
+    if (summary) {
+      renderAcquiredNotDigitized(summary, null);
+      renderHighPriorityNotAcquired(summary);
+    }
     return;
   }
   const errEl = panel.querySelector("#wip-error");
@@ -888,7 +976,10 @@ async function loadAndRenderWorkInProgress(summary) {
       loadWorkInProgressHistoryJson(),
     ]);
     renderWorkInProgress(panel, data, history);
-    if (summary) renderAcquiredNotDigitized(summary, data);
+    if (summary) {
+      renderAcquiredNotDigitized(summary, data);
+      renderHighPriorityNotAcquired(summary);
+    }
   } catch (e) {
     console.error(e);
     panel.hidden = false;
@@ -900,6 +991,10 @@ async function loadAndRenderWorkInProgress(summary) {
     if (metaEl) metaEl.textContent = "";
     const cardsRoot = panel.querySelector("#wip-cards");
     if (cardsRoot) cardsRoot.innerHTML = "";
+    if (summary) {
+      renderAcquiredNotDigitized(summary, null);
+      renderHighPriorityNotAcquired(summary);
+    }
   }
 }
 

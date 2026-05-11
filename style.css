@@ -597,6 +597,20 @@ body {
   margin-top: 26px;
 }
 
+.priority-not-acquired-panel {
+  margin-top: 22px;
+}
+
+.priority-not-acquired-panel h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.priority-not-acquired-meta {
+  margin-bottom: 14px;
+}
+
 .acquired-todo-panel h3 {
   margin: 0 0 6px;
   font-size: 1.05rem;
