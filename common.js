@@ -762,8 +762,8 @@ const ACQUIRED_TODO_HIGH_PRIORITY_IDS = new Set([
   "mobile county, al",
 ]);
 
-/** Shown under "High priority but not acquired" while tracker status is not ACQUIRED. */
-const HIGH_PRIORITY_NOT_ACQUIRED_ORDER = [
+/** Always listed together under the high-priority acquisition panel (FL / WA). */
+const HIGH_PRIORITY_ACQUISITION_ORDER = [
   "orange county, fl",
   "whatcom county, wa",
 ];
@@ -781,18 +781,16 @@ function isAcquiredTodoHighPriority(countyRow) {
   return ACQUIRED_TODO_HIGH_PRIORITY_IDS.has(overviewCountyIdKey(countyRow));
 }
 
-function findHighPriorityNotAcquired(summary) {
+function findHighPriorityAcquisitionTargets(summary) {
   const counties = Array.isArray(summary?.counties) ? summary.counties : [];
   const byId = new Map();
   for (const c of counties) {
     byId.set(overviewCountyIdKey(c), c);
   }
   const out = [];
-  for (const cid of HIGH_PRIORITY_NOT_ACQUIRED_ORDER) {
+  for (const cid of HIGH_PRIORITY_ACQUISITION_ORDER) {
     const c = byId.get(cid);
-    if (!c) continue;
-    if (statusCategory(c.status).toUpperCase() === "ACQUIRED") continue;
-    out.push(c);
+    if (c) out.push(c);
   }
   return out;
 }
@@ -804,7 +802,7 @@ function renderHighPriorityNotAcquired(summary) {
   const countEl = panel.querySelector("#priority-not-acquired-count");
   if (!grid) return;
 
-  const list = findHighPriorityNotAcquired(summary);
+  const list = findHighPriorityAcquisitionTargets(summary);
   if (!list.length) {
     panel.hidden = true;
     grid.innerHTML = "";
@@ -816,52 +814,27 @@ function renderHighPriorityNotAcquired(summary) {
     countEl.textContent = `${list.length} ${list.length === 1 ? "county" : "counties"}`;
   }
 
-  const byState = new Map();
-  for (const c of list) {
-    const state = String(c.state || c.st || "").trim().toUpperCase() || "—";
-    if (!byState.has(state)) byState.set(state, []);
-    byState.get(state).push(c);
-  }
-  const stateGroups = [...byState.entries()].sort((a, b) =>
-    a[0].localeCompare(b[0]),
-  );
-  for (const [, counties] of stateGroups) {
-    counties.sort((a, b) =>
-      String(a.county_name || "").localeCompare(
-        String(b.county_name || ""),
-        undefined,
-        { sensitivity: "base" },
-      ),
-    );
-  }
-
-  grid.innerHTML = stateGroups
-    .map(([state, counties]) => {
-      const stateEsc = escapeHtml(state);
-      const chipsHtml = counties
-        .map((c) => {
-          const name = escapeHtml(c.county_name || "");
-          const city = escapeHtml(getRowCentralCity(c) || "");
-          const cityHtml = city
-            ? `<div class="acquired-todo-city">${city}</div>`
-            : "";
-          return `
+  const chipsHtml = list
+    .map((c) => {
+      const name = escapeHtml(c.county_name || "");
+      const city = escapeHtml(getRowCentralCity(c) || "");
+      const cityHtml = city
+        ? `<div class="acquired-todo-city">${city}</div>`
+        : "";
+      const tracker = escapeHtml(String(getRowStatusRaw(c) || "").trim());
+      const trackerHtml = tracker
+        ? `<div class="acquired-todo-tracker-status">${tracker}</div>`
+        : "";
+      return `
             <div class="acquired-todo-chip">
               <div class="acquired-todo-name">${name}</div>
               ${cityHtml}
+              ${trackerHtml}
             </div>`;
-        })
-        .join("");
-      return `
-        <section class="acquired-todo-state-group" aria-label="${stateEsc}">
-          <header class="acquired-todo-state-head">
-            <span class="acquired-todo-state-code">${stateEsc}</span>
-            <span class="acquired-todo-state-count">${counties.length}</span>
-          </header>
-          <div class="acquired-todo-state-chips">${chipsHtml}</div>
-        </section>`;
     })
     .join("");
+
+  grid.innerHTML = `<div class="acquired-todo-state-chips priority-acquisition-chips">${chipsHtml}</div>`;
 }
 
 function findAcquiredNotDigitized(summary, wipData) {
