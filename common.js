@@ -759,14 +759,12 @@ const ACQUIRED_TODO_HIGH_PRIORITY_IDS = new Set([
   "hennepin county, mn",
   "dane county, wi",
   "baltimore county, md",
+  "orange county, fl",
   "mobile county, al",
 ]);
 
-/** Always listed together under the high-priority acquisition panel (FL / WA). */
-const HIGH_PRIORITY_ACQUISITION_ORDER = [
-  "orange county, fl",
-  "whatcom county, wa",
-];
+/** Shown under "High priority but not acquired" while tracker status is not ACQUIRED. */
+const HIGH_PRIORITY_NOT_ACQUIRED_ORDER = ["whatcom county, wa"];
 
 function overviewCountyIdKey(countyRow) {
   return String(
@@ -781,16 +779,18 @@ function isAcquiredTodoHighPriority(countyRow) {
   return ACQUIRED_TODO_HIGH_PRIORITY_IDS.has(overviewCountyIdKey(countyRow));
 }
 
-function findHighPriorityAcquisitionTargets(summary) {
+function findHighPriorityNotAcquired(summary) {
   const counties = Array.isArray(summary?.counties) ? summary.counties : [];
   const byId = new Map();
   for (const c of counties) {
     byId.set(overviewCountyIdKey(c), c);
   }
   const out = [];
-  for (const cid of HIGH_PRIORITY_ACQUISITION_ORDER) {
+  for (const cid of HIGH_PRIORITY_NOT_ACQUIRED_ORDER) {
     const c = byId.get(cid);
-    if (c) out.push(c);
+    if (!c) continue;
+    if (statusCategory(c.status).toUpperCase() === "ACQUIRED") continue;
+    out.push(c);
   }
   return out;
 }
@@ -802,7 +802,7 @@ function renderHighPriorityNotAcquired(summary) {
   const countEl = panel.querySelector("#priority-not-acquired-count");
   if (!grid) return;
 
-  const list = findHighPriorityAcquisitionTargets(summary);
+  const list = findHighPriorityNotAcquired(summary);
   if (!list.length) {
     panel.hidden = true;
     grid.innerHTML = "";
@@ -821,15 +821,10 @@ function renderHighPriorityNotAcquired(summary) {
       const cityHtml = city
         ? `<div class="acquired-todo-city">${city}</div>`
         : "";
-      const tracker = escapeHtml(String(getRowStatusRaw(c) || "").trim());
-      const trackerHtml = tracker
-        ? `<div class="acquired-todo-tracker-status">${tracker}</div>`
-        : "";
       return `
             <div class="acquired-todo-chip">
               <div class="acquired-todo-name">${name}</div>
               ${cityHtml}
-              ${trackerHtml}
             </div>`;
     })
     .join("");
