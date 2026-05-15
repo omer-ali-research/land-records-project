@@ -1,24 +1,22 @@
 {
-  "generated_at": "2026-05-14T15:23:49.010724+00:00",
+  "generated_at": "2026-05-15T15:20:45.124896+00:00",
   "sources": [
     {
       "id": "maricopa",
       "label": "Maricopa, AZ (Phoenix)",
-      "total_rows": 44703,
-      "checked_rows": 21565,
+      "total_rows": 570,
+      "checked_rows": 0,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Pipeline output checked (checked_by)",
-      "tabs_scanned": 28,
-      "discovery_mode": "full",
-      "errors": [
-        "'Sheet9' (#28 of 28): column 'checked_by' not found in header row 1"
-      ]
+      "tabs_scanned": 1,
+      "discovery_mode": "fallback",
+      "errors": []
     },
     {
       "id": "bexar",
       "label": "Bexar, TX (San Antonio)",
       "total_rows": 27251,
-      "checked_rows": 23403,
+      "checked_rows": 23989,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Pipeline output checked (checked_by)",
       "tabs_scanned": 9,

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-14T15:23:49.010724+00:00",
+  "generated_at": "2026-05-15T15:20:45.124896+00:00",
   "retention_days": 400,
   "snapshots": [
     {
@@ -479,6 +479,36 @@
           "label": "Bexar, TX (San Antonio)",
           "total_rows": 27251,
           "checked_rows": 23403
+        },
+        {
+          "id": "guilford",
+          "label": "Guilford, NC (Greensboro)",
+          "total_rows": 6065,
+          "checked_rows": 5725
+        },
+        {
+          "id": "hennepin",
+          "label": "Hennepin, MN (Minneapolis)",
+          "total_rows": 4089,
+          "checked_rows": 0
+        }
+      ]
+    },
+    {
+      "date": "2026-05-15",
+      "generated_at": "2026-05-15T15:20:45.124896+00:00",
+      "sources": [
+        {
+          "id": "maricopa",
+          "label": "Maricopa, AZ (Phoenix)",
+          "total_rows": 570,
+          "checked_rows": 0
+        },
+        {
+          "id": "bexar",
+          "label": "Bexar, TX (San Antonio)",
+          "total_rows": 27251,
+          "checked_rows": 23989
         },
         {
           "id": "guilford",
