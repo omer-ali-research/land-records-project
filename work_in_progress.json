@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-17T14:27:42.006521+00:00",
+  "generated_at": "2026-05-18T16:29:33.537437+00:00",
   "sources": [
     {
       "id": "maricopa",
       "label": "Maricopa, AZ (Phoenix)",
       "total_rows": 44703,
-      "checked_rows": 21565,
+      "checked_rows": 21580,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Pipeline output checked (checked_by)",
       "tabs_scanned": 28,
@@ -18,7 +18,7 @@
       "id": "bexar",
       "label": "Bexar, TX (San Antonio)",
       "total_rows": 27251,
-      "checked_rows": 24025,
+      "checked_rows": 24109,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Pipeline output checked (checked_by)",
       "tabs_scanned": 9,
@@ -29,7 +29,7 @@
       "id": "guilford",
       "label": "Guilford, NC (Greensboro)",
       "total_rows": 6065,
-      "checked_rows": 5725,
+      "checked_rows": 5800,
       "total_bar_label": "Rows with data (ALL tab)",
       "checked_bar_label": "Addresses checked (address_check)",
       "tabs_scanned": 1,
