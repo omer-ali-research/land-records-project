@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T16:25:56.053048+00:00",
+  "generated_at": "2026-05-20T16:29:12.914063+00:00",
   "retention_days": 400,
   "snapshots": [
     {
@@ -641,6 +641,42 @@
           "label": "Hennepin, MN (Minneapolis)",
           "total_rows": 20721,
           "checked_rows": 4292
+        }
+      ]
+    },
+    {
+      "date": "2026-05-20",
+      "generated_at": "2026-05-20T16:29:12.914063+00:00",
+      "sources": [
+        {
+          "id": "maricopa",
+          "label": "Maricopa, AZ (Phoenix)",
+          "total_rows": 44703,
+          "checked_rows": 22437
+        },
+        {
+          "id": "bexar",
+          "label": "Bexar, TX (San Antonio)",
+          "total_rows": 27251,
+          "checked_rows": 24254
+        },
+        {
+          "id": "guilford",
+          "label": "Guilford, NC (Greensboro)",
+          "total_rows": 6065,
+          "checked_rows": 5801
+        },
+        {
+          "id": "hennepin",
+          "label": "Hennepin, MN (Minneapolis)",
+          "total_rows": 20721,
+          "checked_rows": 4942
+        },
+        {
+          "id": "peoria_65_75",
+          "label": "Peoria, IL (1965 & 1975 sample)",
+          "total_rows": 312,
+          "checked_rows": 0
         }
       ]
     }

@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-19T16:25:56.053048+00:00",
+  "generated_at": "2026-05-20T16:29:12.914063+00:00",
   "sources": [
     {
       "id": "maricopa",
       "label": "Maricopa, AZ (Phoenix)",
       "total_rows": 44703,
-      "checked_rows": 21880,
+      "checked_rows": 22437,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Pipeline output checked (checked_by)",
       "tabs_scanned": 28,
@@ -18,7 +18,7 @@
       "id": "bexar",
       "label": "Bexar, TX (San Antonio)",
       "total_rows": 27251,
-      "checked_rows": 24229,
+      "checked_rows": 24254,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Pipeline output checked (checked_by)",
       "tabs_scanned": 9,
@@ -29,7 +29,7 @@
       "id": "guilford",
       "label": "Guilford, NC (Greensboro)",
       "total_rows": 6065,
-      "checked_rows": 5800,
+      "checked_rows": 5801,
       "total_bar_label": "Rows with data (ALL tab)",
       "checked_bar_label": "Addresses checked (address_check)",
       "tabs_scanned": 1,
@@ -40,11 +40,22 @@
       "id": "hennepin",
       "label": "Hennepin, MN (Minneapolis)",
       "total_rows": 20721,
-      "checked_rows": 4292,
+      "checked_rows": 4942,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows checked (Checked_by)",
-      "tabs_scanned": 6,
+      "tabs_scanned": 8,
       "discovery_mode": "full",
+      "errors": []
+    },
+    {
+      "id": "peoria_65_75",
+      "label": "Peoria, IL (1965 & 1975 sample)",
+      "total_rows": 312,
+      "checked_rows": 0,
+      "total_bar_label": "Rows with data (1965 & 1975 sample)",
+      "checked_bar_label": "Rows checked (Checked_by)",
+      "tabs_scanned": 1,
+      "discovery_mode": "manual",
       "errors": []
     }
   ]
