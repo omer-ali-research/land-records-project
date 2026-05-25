@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-24T14:27:08.433065+00:00",
+  "generated_at": "2026-05-25T15:54:57.777153+00:00",
   "sources": [
     {
       "id": "maricopa",
       "label": "Maricopa, AZ (Phoenix)",
-      "total_rows": 44702,
-      "checked_rows": 23689,
+      "total_rows": 44699,
+      "checked_rows": 24050,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Pipeline output checked (checked_by)",
       "tabs_scanned": 28,
@@ -17,19 +17,19 @@
     {
       "id": "bexar",
       "label": "Bexar, TX (San Antonio)",
-      "total_rows": 2537,
-      "checked_rows": 2537,
+      "total_rows": 27251,
+      "checked_rows": 24678,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Pipeline output checked (checked_by)",
-      "tabs_scanned": 1,
-      "discovery_mode": "fallback",
+      "tabs_scanned": 9,
+      "discovery_mode": "full",
       "errors": []
     },
     {
       "id": "guilford",
       "label": "Guilford, NC (Greensboro)",
       "total_rows": 6065,
-      "checked_rows": 5871,
+      "checked_rows": 5910,
       "total_bar_label": "Rows with data (ALL tab)",
       "checked_bar_label": "Addresses checked (address_check)",
       "tabs_scanned": 1,
@@ -40,7 +40,7 @@
       "id": "hennepin",
       "label": "Hennepin, MN (Minneapolis)",
       "total_rows": 20721,
-      "checked_rows": 6722,
+      "checked_rows": 6822,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows checked (Checked_by)",
       "tabs_scanned": 8,
