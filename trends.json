@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-24T20:04:02.340732",
+  "generated_at": "2026-05-26T20:28:58.331308",
   "periods": [
     "1935-40",
     "1950",
@@ -222,12 +222,12 @@
       "county_id": "Marion County, IN",
       "county_name": "Marion County",
       "state": "IN",
-      "file_name": "data_in_marion/marion.xlsx",
-      "rows_total": 24367,
+      "file_name": "data_in_marion/marion 2026-05-17.xlsx",
+      "rows_total": 24366,
       "counts": {
         "1935-40": 5865,
-        "1950": 2848,
-        "1960": 2818,
+        "1950": 2847,
+        "1960": 2819,
         "1965": 3468,
         "1970": 3750,
         "1975": 2984
@@ -238,11 +238,11 @@
           "VA": 0
         },
         "1950": {
-          "FHA": 2383,
-          "VA": 465
+          "FHA": 2379,
+          "VA": 468
         },
         "1960": {
-          "FHA": 2214,
+          "FHA": 2215,
           "VA": 604
         },
         "1965": {
@@ -305,7 +305,7 @@
       "county_name": "Onondaga County",
       "state": "NY",
       "file_name": "data_ny_onondaga/onondaga_all.csv",
-      "rows_total": 5098,
+      "rows_total": 5093,
       "counts": {
         "1935-40": 356,
         "1950": 1443,

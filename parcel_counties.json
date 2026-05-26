@@ -1,9 +1,21 @@
 {
-  "generated_at": "2026-04-24T20:03:39.395230",
+  "generated_at": "2026-05-26T20:28:31.257649",
   "parcel_data_root": "",
   "dropbox_folder_url": "",
-  "count": 24,
+  "count": 28,
   "counties": [
+    {
+      "folder": "al_mobile",
+      "county_name": "AL Mobile",
+      "rows_total": 212136,
+      "legal_description_populated": 0,
+      "legal_description_pct": 0.0,
+      "legal_description_column": "legaldesc",
+      "source_files": [
+        "al_mobile.csv.zip"
+      ],
+      "error": null
+    },
     {
       "folder": "az_maricopa",
       "county_name": "AZ Maricopa",
@@ -13,6 +25,18 @@
       "legal_description_column": "legaldesc",
       "source_files": [
         "az_maricopa.csv.zip"
+      ],
+      "error": null
+    },
+    {
+      "folder": "fl_orange",
+      "county_name": "FL Orange",
+      "rows_total": 494282,
+      "legal_description_populated": 0,
+      "legal_description_pct": 0.0,
+      "legal_description_column": "legaldesc",
+      "source_files": [
+        "fl_orange.csv.zip"
       ],
       "error": null
     },
@@ -113,6 +137,16 @@
         "md_prince_georges.csv.zip"
       ],
       "error": null
+    },
+    {
+      "folder": "mn_hennepin",
+      "county_name": "MN Hennepin",
+      "rows_total": 0,
+      "legal_description_populated": 0,
+      "legal_description_pct": null,
+      "legal_description_column": null,
+      "source_files": [],
+      "error": "mn_hennepin.csv.zip: File is not a zip file"
     },
     {
       "folder": "nc_durham",
@@ -290,6 +324,16 @@
         "tx_tarrant.csv.zip"
       ],
       "error": null
+    },
+    {
+      "folder": "wa_whatcom",
+      "county_name": "WA Whatcom",
+      "rows_total": 0,
+      "legal_description_populated": 0,
+      "legal_description_pct": null,
+      "legal_description_column": null,
+      "source_files": [],
+      "error": "wa_whatcom.csv.zip: File is not a zip file"
     },
     {
       "folder": "wi_dane",

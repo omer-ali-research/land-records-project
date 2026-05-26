@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-04T23:04:18.323999",
+  "generated_at": "2026-05-26T20:29:12.681065",
   "periods": [
     "1935-40",
     "1950",
@@ -133,6 +133,26 @@
         "1960": "maps/census_tracts/hampden_ma_black_share_1960.geojson",
         "1970": "maps/census_tracts/hampden_ma_black_share_1970.geojson"
       }
+    },
+    {
+      "county_id": "Marion County, IN",
+      "county_name": "Marion County",
+      "state": "IN",
+      "geoid": "18097",
+      "maps_slug": "marion_in",
+      "geojson": "maps/marion_in.geojson",
+      "boundary": "maps/boundaries/marion_in_boundary.geojson",
+      "feature_count": 2956,
+      "bounds": [
+        [
+          39.623974849999996,
+          -86.34537914678045
+        ],
+        [
+          39.94143815,
+          -85.93179889777235
+        ]
+      ]
     },
     {
       "county_id": "Mecklenburg County, NC",
