@@ -4,7 +4,7 @@
   "target_counties_tab": "target counties",
   "dropbox_data_folder_url": "",
   "totals": {
-    "num_counties": 65,
+    "num_counties": 11,
     "rows_total": 103840,
     "rows_with_address": 73496,
     "rows_geocoded": 68436,
@@ -16,7 +16,8 @@
       "NOT STARTED": 3,
       "PENDING": 2,
       "TOO PRICEY": 1
-    }
+    },
+    "num_counties_tracker": 65
   },
   "counties": [
     {
