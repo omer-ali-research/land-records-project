@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T18:02:53.580126+00:00",
+  "generated_at": "2026-06-03T18:53:31.613044+00:00",
   "sources": [
     {
       "id": "maricopa",
@@ -40,7 +40,7 @@
       "id": "hennepin",
       "label": "Hennepin, MN (Minneapolis)",
       "total_rows": 20721,
-      "checked_rows": 9831,
+      "checked_rows": 9907,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows checked (Checked_by)",
       "tabs_scanned": 8,
@@ -54,6 +54,17 @@
       "checked_rows": 564,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows checked (Checked_by)",
+      "tabs_scanned": 2,
+      "discovery_mode": "full",
+      "errors": []
+    },
+    {
+      "id": "peoria_65_75_address",
+      "label": "Peoria, IL (1965 & 1975 sample) \u2014 addresses",
+      "total_rows": 566,
+      "checked_rows": 194,
+      "total_bar_label": "Rows with data (all tabs)",
+      "checked_bar_label": "Rows with address (Address)",
       "tabs_scanned": 2,
       "discovery_mode": "full",
       "errors": []
