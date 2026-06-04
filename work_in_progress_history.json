@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T18:53:31.613044+00:00",
+  "generated_at": "2026-06-04T16:22:12.059233+00:00",
   "retention_days": 400,
   "snapshots": [
     {
@@ -1187,6 +1187,48 @@
           "label": "Peoria, IL (1965 & 1975 sample) \u2014 addresses",
           "total_rows": 566,
           "checked_rows": 194
+        }
+      ]
+    },
+    {
+      "date": "2026-06-04",
+      "generated_at": "2026-06-04T16:22:12.059233+00:00",
+      "sources": [
+        {
+          "id": "maricopa",
+          "label": "Maricopa, AZ (Phoenix)",
+          "total_rows": 44699,
+          "checked_rows": 29120
+        },
+        {
+          "id": "bexar",
+          "label": "Bexar, TX (San Antonio)",
+          "total_rows": 27251,
+          "checked_rows": 25503
+        },
+        {
+          "id": "guilford",
+          "label": "Guilford, NC (Greensboro)",
+          "total_rows": 6065,
+          "checked_rows": 6061
+        },
+        {
+          "id": "hennepin",
+          "label": "Hennepin, MN (Minneapolis)",
+          "total_rows": 20721,
+          "checked_rows": 10133
+        },
+        {
+          "id": "peoria_65_75",
+          "label": "Peoria, IL (1965 & 1975 sample)",
+          "total_rows": 566,
+          "checked_rows": 564
+        },
+        {
+          "id": "peoria_65_75_address",
+          "label": "Peoria, IL (1965 & 1975 sample) \u2014 addresses",
+          "total_rows": 566,
+          "checked_rows": 252
         }
       ]
     }
