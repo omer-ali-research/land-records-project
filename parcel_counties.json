@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T20:28:31.257649",
+  "generated_at": "2026-06-05T17:10:52.726881",
   "parcel_data_root": "",
   "dropbox_folder_url": "",
   "count": 28,
@@ -141,12 +141,14 @@
     {
       "folder": "mn_hennepin",
       "county_name": "MN Hennepin",
-      "rows_total": 0,
-      "legal_description_populated": 0,
-      "legal_description_pct": null,
-      "legal_description_column": null,
-      "source_files": [],
-      "error": "mn_hennepin.csv.zip: File is not a zip file"
+      "rows_total": 447650,
+      "legal_description_populated": 169822,
+      "legal_description_pct": 37.9,
+      "legal_description_column": "legaldesc",
+      "source_files": [
+        "mn_hennepin.csv.zip"
+      ],
+      "error": null
     },
     {
       "folder": "nc_durham",
@@ -328,12 +330,14 @@
     {
       "folder": "wa_whatcom",
       "county_name": "WA Whatcom",
-      "rows_total": 0,
-      "legal_description_populated": 0,
-      "legal_description_pct": null,
-      "legal_description_column": null,
-      "source_files": [],
-      "error": "wa_whatcom.csv.zip: File is not a zip file"
+      "rows_total": 116433,
+      "legal_description_populated": 116056,
+      "legal_description_pct": 99.7,
+      "legal_description_column": "legal_description",
+      "source_files": [
+        "wa_whatcom.csv.zip"
+      ],
+      "error": null
     },
     {
       "folder": "wi_dane",

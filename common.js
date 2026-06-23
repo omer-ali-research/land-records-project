@@ -761,10 +761,11 @@ const ACQUIRED_TODO_HIGH_PRIORITY_IDS = new Set([
   "baltimore county, md",
   "orange county, fl",
   "mobile county, al",
+  "whatcom county, wa",
 ]);
 
 /** Shown under "High priority but not acquired" while tracker status is not ACQUIRED. */
-const HIGH_PRIORITY_NOT_ACQUIRED_ORDER = ["whatcom county, wa"];
+const HIGH_PRIORITY_NOT_ACQUIRED_ORDER = [];
 
 function overviewCountyIdKey(countyRow) {
   return String(

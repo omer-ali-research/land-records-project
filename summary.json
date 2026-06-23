@@ -9,12 +9,12 @@
     "rows_with_address": 73496,
     "rows_geocoded": 68436,
     "status_counts": {
-      "ACQUIRED": 31,
+      "ACQUIRED": 32,
       "ON HOLD": 14,
       "TABLED": 8,
       "NOT SCANNED": 6,
       "NOT STARTED": 3,
-      "PENDING": 2,
+      "PENDING": 1,
       "TOO PRICEY": 1
     },
     "num_counties_tracker": 65
@@ -3097,7 +3097,7 @@
       "county_name": "Whatcom County",
       "central_city": "Bellingham",
       "st": "WA",
-      "status": "2 - PENDING",
+      "status": "1 - ACQUIRED",
       "state": "WA",
       "geoid": "53073",
       "file_name": "",
@@ -3110,7 +3110,7 @@
       "target counties__Regrid": null,
       "target counties__Contact": "Kate",
       "target counties__Central City": "Bellingham",
-      "target counties__Status": "2 - PENDING",
+      "target counties__Status": "1 - ACQUIRED",
       "target counties__Notes": "Kate making final negotiations attempts ",
       "target counties__Data availability": "Available",
       "target counties__Paid or estimated amount": null,
