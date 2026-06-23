@@ -592,6 +592,35 @@ body {
   line-height: 1.4;
 }
 
+.wip-card--complete {
+  border-color: rgba(52, 211, 153, 0.4);
+  background: rgba(6, 78, 59, 0.12);
+}
+
+.wip-complete-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.wip-complete-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #a7f3d0;
+  background: rgba(6, 95, 70, 0.4);
+  border: 1px solid rgba(52, 211, 153, 0.45);
+  border-radius: 999px;
+}
+
 /* —— Overview: ACQUIRED but not yet digitized —— */
 .acquired-todo-panel {
   margin-top: 26px;

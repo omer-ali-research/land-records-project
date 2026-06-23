@@ -607,14 +607,32 @@ function indexWipHistoryById(history) {
   return out;
 }
 
+/** Workstreams at or above this % checked are labeled complete on the overview. */
+const WIP_COMPLETE_PCT_THRESHOLD = 99;
+
+function wipCompletionPct(source) {
+  const total = Math.max(0, Number(source.total_rows) || 0);
+  const checked = Math.max(
+    0,
+    Math.min(Number(source.checked_rows) || 0, total),
+  );
+  if (total <= 0) return 0;
+  return (checked / total) * 100;
+}
+
+function isWipWorkstreamComplete(source) {
+  return wipCompletionPct(source) >= WIP_COMPLETE_PCT_THRESHOLD;
+}
+
 function buildWipCard(s, history) {
   const total = Math.max(0, Number(s.total_rows) || 0);
   const checked = Math.max(0, Math.min(Number(s.checked_rows) || 0, total));
   const pct = total > 0 ? Math.round((checked / total) * 1000) / 10 : 0;
   const barPct = total > 0 ? (checked / total) * 100 : 0;
+  const isComplete = isWipWorkstreamComplete(s);
 
   const art = document.createElement("article");
-  art.className = "wip-card";
+  art.className = isComplete ? "wip-card wip-card--complete" : "wip-card";
   const titleEsc = escapeHtml(s.label || "");
   const warn =
     Array.isArray(s.errors) && s.errors.length
@@ -645,6 +663,13 @@ function buildWipCard(s, history) {
     </div>`
     : "";
 
+  const completeBlock = isComplete
+    ? `<p class="wip-complete-note" role="status">
+        <span class="wip-complete-badge">Complete</span>
+        <span>At ${pct}% checked (at or above ${WIP_COMPLETE_PCT_THRESHOLD}%).</span>
+      </p>`
+    : "";
+
   art.innerHTML = `
     <header class="wip-card__head">
       <h3 class="wip-card__title">${titleEsc}</h3>
@@ -672,6 +697,7 @@ function buildWipCard(s, history) {
       </div>
     </div>
     ${sparkBlock}
+    ${completeBlock}
   `;
   return art;
 }
