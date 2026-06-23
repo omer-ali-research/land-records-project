@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T15:53:56.535210+00:00",
+  "generated_at": "2026-06-23T19:33:49.728663+00:00",
   "retention_days": 400,
   "snapshots": [
     {
@@ -1990,19 +1990,25 @@
     },
     {
       "date": "2026-06-23",
-      "generated_at": "2026-06-23T15:53:56.535210+00:00",
+      "generated_at": "2026-06-23T19:33:49.728663+00:00",
       "sources": [
         {
           "id": "maricopa",
           "label": "Maricopa, AZ (Phoenix)",
           "total_rows": 50856,
-          "checked_rows": 38367
+          "checked_rows": 38519
         },
         {
           "id": "bexar",
           "label": "Bexar, TX (San Antonio)",
           "total_rows": 27250,
           "checked_rows": 27246
+        },
+        {
+          "id": "bexar_address",
+          "label": "Bexar, TX (San Antonio) \u2014 addresses",
+          "total_rows": 27251,
+          "checked_rows": 17568
         },
         {
           "id": "guilford",
