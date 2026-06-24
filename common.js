@@ -621,7 +621,15 @@ function wipCompletionPct(source) {
 }
 
 function isWipWorkstreamComplete(source) {
+  if (source.mark_complete) return true;
   return wipCompletionPct(source) >= WIP_COMPLETE_PCT_THRESHOLD;
+}
+
+function wipCompleteDetailText(source, pct) {
+  if (source.mark_complete && wipCompletionPct(source) < WIP_COMPLETE_PCT_THRESHOLD) {
+    return `Marked complete (${pct}% filled in sheet; remaining rows are not applicable).`;
+  }
+  return `At ${pct}% checked (at or above ${WIP_COMPLETE_PCT_THRESHOLD}%).`;
 }
 
 function buildWipCard(s, history) {
@@ -666,7 +674,7 @@ function buildWipCard(s, history) {
   const completeBlock = isComplete
     ? `<p class="wip-complete-note" role="status">
         <span class="wip-complete-badge">Complete</span>
-        <span>At ${pct}% checked (at or above ${WIP_COMPLETE_PCT_THRESHOLD}%).</span>
+        <span>${escapeHtml(wipCompleteDetailText(s, pct))}</span>
       </p>`
     : "";
 
