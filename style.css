@@ -400,8 +400,8 @@ body {
 
 .wip-card {
   border-radius: var(--radius-md);
-  border: 1px solid var(--card-border);
-  background: rgba(15, 23, 42, 0.45);
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: rgba(15, 23, 42, 0.58);
   padding: 14px 16px 16px;
 }
 
@@ -593,8 +593,61 @@ body {
 }
 
 .wip-card--complete {
-  border-color: rgba(52, 211, 153, 0.4);
-  background: rgba(6, 78, 59, 0.12);
+  border-color: rgba(71, 85, 105, 0.28);
+  background: rgba(15, 23, 42, 0.22);
+}
+
+.wip-card--complete .wip-card__title {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.wip-card--complete .wip-tab-note,
+.wip-card--complete .wip-bar-name,
+.wip-card--complete .wip-spark-title,
+.wip-card--complete .wip-complete-note {
+  color: #64748b;
+}
+
+.wip-card--complete .wip-bar-num {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.wip-card--complete .wip-bar-track {
+  background: rgba(30, 41, 59, 0.55);
+  border-color: rgba(71, 85, 105, 0.35);
+}
+
+.wip-card--complete .wip-bar-fill--total {
+  background: linear-gradient(90deg, rgba(51, 65, 85, 0.65), rgba(71, 85, 105, 0.65));
+}
+
+.wip-card--complete .wip-bar-fill--checked {
+  background: linear-gradient(90deg, rgba(71, 85, 105, 0.75), rgba(100, 116, 139, 0.75));
+}
+
+.wip-card--complete .wip-spark {
+  border-top-color: rgba(71, 85, 105, 0.28);
+}
+
+.wip-card--complete .wip-spark-line {
+  stroke: rgba(100, 116, 139, 0.55);
+}
+
+.wip-card--complete .wip-spark-area {
+  fill: rgba(100, 116, 139, 0.08);
+}
+
+.wip-card--complete .wip-spark-dot {
+  fill: rgba(100, 116, 139, 0.55);
+  stroke: rgba(15, 23, 42, 0.6);
+}
+
+.wip-card--complete .wip-spark-last,
+.wip-card--complete .wip-spark-ytick,
+.wip-card--complete .wip-spark-xtick {
+  fill: #64748b;
 }
 
 .wip-complete-note {
@@ -615,10 +668,16 @@ body {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #a7f3d0;
-  background: rgba(6, 95, 70, 0.4);
-  border: 1px solid rgba(52, 211, 153, 0.45);
+  color: #94a3b8;
+  background: rgba(51, 65, 85, 0.45);
+  border: 1px solid rgba(100, 116, 139, 0.35);
   border-radius: 999px;
+}
+
+.wip-card--complete .wip-complete-badge {
+  color: #64748b;
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(71, 85, 105, 0.35);
 }
 
 /* —— Overview: ACQUIRED but not yet digitized —— */
