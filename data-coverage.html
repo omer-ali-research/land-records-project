@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Land Records Project Dashboard - Data coverage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <h1>Land Records Project Dashboard</h1>
+        <p class="subtitle">
+          Dropbox FHA/VA exports scanned for overview row, address, and geocode totals
+        </p>
+        <nav class="top-nav" aria-label="Primary">
+          <a href="index.html">Overview</a>
+          <a href="data-acquisition.html">Data acquisition</a>
+          <a href="data-coverage.html" class="is-active">Data coverage</a>
+          <a href="trends.html">FHA/VA</a>
+          <a href="reported.html">Reported</a>
+          <a href="discrepancy.html">Discrepancy</a>
+          <a href="maps.html">Maps</a>
+          <a href="all-mortgages.html">All mortgages</a>
+          <a href="parcel.html">Parcel data</a>
+        </nav>
+      </div>
+      <div class="top-bar-right">
+        <span id="generated-at" class="meta-pill"></span>
+      </div>
+    </header>
+
+    <main class="layout layout--single">
+      <section class="summary-panel">
+        <h2>Summary</h2>
+        <p class="coverage-intro">
+          Totals union rows across all configured files per county folder, deduplicated by
+          deed identity (filename, link, or book/page). See
+          <code>scripts/build_summary.py</code> for file-selection rules.
+        </p>
+        <div class="summary-grid">
+          <div class="summary-card">
+            <span class="label">Counties with data</span>
+            <span id="total-counties" class="value">–</span>
+          </div>
+          <div class="summary-card">
+            <span class="label">Rows (all)</span>
+            <span id="total-rows" class="value">–</span>
+          </div>
+          <div class="summary-card">
+            <span class="label">With addresses</span>
+            <span id="total-rows-address" class="value">–</span>
+          </div>
+          <div class="summary-card">
+            <span class="label">Geocoded</span>
+            <span id="total-rows-geocoded" class="value">–</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-panel coverage-panel">
+        <h2>By county</h2>
+        <div class="table-wrap">
+          <table class="data-table coverage-table" id="coverage-table">
+            <thead>
+              <tr>
+                <th scope="col">County</th>
+                <th scope="col">Rows</th>
+                <th scope="col">With address</th>
+                <th scope="col">Geocoded</th>
+                <th scope="col">Primary file</th>
+              </tr>
+            </thead>
+            <tbody id="coverage-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="common.js"></script>
+    <script src="data-coverage.js"></script>
+  </body>
+</html>

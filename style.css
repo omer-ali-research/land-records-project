@@ -854,6 +854,83 @@ body {
   color: var(--muted);
 }
 
+/* —— Data coverage details page —— */
+.coverage-intro {
+  margin: 0 0 16px;
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.45;
+  max-width: 52rem;
+}
+
+.coverage-panel {
+  margin-top: 8px;
+}
+
+.coverage-table td,
+.coverage-table th {
+  vertical-align: top;
+}
+
+.coverage-details summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.coverage-files-wrap {
+  margin-top: 10px;
+  overflow-x: auto;
+}
+
+.coverage-files-table {
+  width: 100%;
+  font-size: 0.82rem;
+}
+
+.coverage-files-table th,
+.coverage-files-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.coverage-path {
+  font-size: 0.78rem;
+  word-break: break-all;
+}
+
+.coverage-pct {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.coverage-role {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border: 1px solid var(--card-border);
+  color: var(--muted);
+}
+
+.coverage-role--primary {
+  color: #93c5fd;
+  border-color: rgba(59, 130, 246, 0.45);
+}
+
+.coverage-role--extra,
+.coverage-role--in_progress {
+  color: #fde68a;
+  border-color: rgba(251, 191, 36, 0.45);
+}
+
+.coverage-file-error {
+  color: #fbbf24;
+  font-size: 0.8rem;
+}
+
 .county-base {
   fill: #1e293b;
   stroke: rgba(148, 163, 184, 0.22);
