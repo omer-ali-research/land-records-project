@@ -735,7 +735,7 @@ function renderWorkInProgress(panel, data, history) {
     const namesEsc = fallbackNames.map((n) => escapeHtml(n)).join(", ");
     const banner = document.createElement("div");
     banner.className = "wip-discovery-hint wip-discovery-hint--global";
-    banner.innerHTML = `<p class="wip-discovery-hint__p"><strong>${namesEsc}</strong> — totals use only the tab(s) in config (full-workbook export or tab listing did not run from your machine). From the repo root run <code>python3 scripts/update_work_in_progress.py</code> (see that script for dependencies and optional API credentials), re-run, then reload.</p>`;
+    banner.innerHTML = `<p class="wip-discovery-hint__p"><strong>${namesEsc}</strong> — row totals use only the worksheet tab(s) listed in config, not the full workbook, so counts may be understated. To refresh from all tabs, run <code>python3 scripts/update_work_in_progress.py</code> from the dashboard repo (see that script for dependencies).</p>`;
     cardsRoot.appendChild(banner);
   }
   const historyById = indexWipHistoryById(history);
