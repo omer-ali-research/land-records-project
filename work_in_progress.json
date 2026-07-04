@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T15:15:07.552724+00:00",
+  "generated_at": "2026-07-04T14:42:08.190225+00:00",
   "sources": [
     {
       "id": "maricopa",
@@ -49,7 +49,7 @@
       "id": "hennepin",
       "label": "Hennepin, MN (Minneapolis)",
       "total_rows": 25692,
-      "checked_rows": 19616,
+      "checked_rows": 20267,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows checked (Checked_by)",
       "tabs_scanned": 8,
