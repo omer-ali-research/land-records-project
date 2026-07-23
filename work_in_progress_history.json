@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-22T15:08:45.084482+00:00",
+  "generated_at": "2026-07-23T15:13:02.728449+00:00",
   "retention_days": 400,
   "snapshots": [
     {
@@ -3412,6 +3412,54 @@
           "id": "hennepin",
           "label": "Hennepin, MN (Minneapolis)",
           "total_rows": 25692,
+          "checked_rows": 25636
+        },
+        {
+          "id": "peoria_65_75",
+          "label": "Peoria, IL (1965 & 1975 sample)",
+          "total_rows": 566,
+          "checked_rows": 564
+        },
+        {
+          "id": "peoria_65_75_address",
+          "label": "Peoria, IL (1965 & 1975 sample) \u2014 addresses",
+          "total_rows": 566,
+          "checked_rows": 548
+        }
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "generated_at": "2026-07-23T15:13:02.728449+00:00",
+      "sources": [
+        {
+          "id": "maricopa",
+          "label": "Maricopa, AZ (Phoenix)",
+          "total_rows": 50854,
+          "checked_rows": 43908
+        },
+        {
+          "id": "bexar",
+          "label": "Bexar, TX (San Antonio)",
+          "total_rows": 27250,
+          "checked_rows": 27246
+        },
+        {
+          "id": "bexar_address",
+          "label": "Bexar, TX (San Antonio) \u2014 addresses",
+          "total_rows": 27251,
+          "checked_rows": 19346
+        },
+        {
+          "id": "guilford",
+          "label": "Guilford, NC (Greensboro)",
+          "total_rows": 6065,
+          "checked_rows": 6061
+        },
+        {
+          "id": "hennepin",
+          "label": "Hennepin, MN (Minneapolis)",
+          "total_rows": 25693,
           "checked_rows": 25636
         },
         {
