@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-07-23T15:13:02.728449+00:00",
+  "generated_at": "2026-07-24T15:00:20.136488+00:00",
   "sources": [
     {
       "id": "maricopa",
       "label": "Maricopa, AZ (Phoenix)",
-      "total_rows": 50854,
+      "total_rows": 53656,
       "checked_rows": 43908,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Pipeline output checked (checked_by)",
-      "tabs_scanned": 32,
+      "tabs_scanned": 34,
       "discovery_mode": "full",
       "errors": []
     },
@@ -27,7 +27,7 @@
       "id": "bexar_address",
       "label": "Bexar, TX (San Antonio) \u2014 addresses",
       "total_rows": 27251,
-      "checked_rows": 19346,
+      "checked_rows": 19462,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows with address (address)",
       "tabs_scanned": 6,
@@ -48,7 +48,7 @@
     {
       "id": "hennepin",
       "label": "Hennepin, MN (Minneapolis)",
-      "total_rows": 25693,
+      "total_rows": 25697,
       "checked_rows": 25636,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows checked (Checked_by)",
