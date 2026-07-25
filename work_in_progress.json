@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-24T15:00:20.136488+00:00",
+  "generated_at": "2026-07-25T14:40:29.282503+00:00",
   "sources": [
     {
       "id": "maricopa",
       "label": "Maricopa, AZ (Phoenix)",
-      "total_rows": 53656,
-      "checked_rows": 43908,
+      "total_rows": 49651,
+      "checked_rows": 43229,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Pipeline output checked (checked_by)",
       "tabs_scanned": 34,
@@ -27,7 +27,7 @@
       "id": "bexar_address",
       "label": "Bexar, TX (San Antonio) \u2014 addresses",
       "total_rows": 27251,
-      "checked_rows": 19462,
+      "checked_rows": 19821,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows with address (address)",
       "tabs_scanned": 6,
