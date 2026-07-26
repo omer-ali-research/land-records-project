@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T14:40:29.282503+00:00",
+  "generated_at": "2026-07-26T14:39:48.170844+00:00",
   "sources": [
     {
       "id": "maricopa",
@@ -27,7 +27,7 @@
       "id": "bexar_address",
       "label": "Bexar, TX (San Antonio) \u2014 addresses",
       "total_rows": 27251,
-      "checked_rows": 19821,
+      "checked_rows": 20086,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows with address (address)",
       "tabs_scanned": 6,
