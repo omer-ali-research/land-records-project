@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30T15:15:17.169678+00:00",
+  "generated_at": "2026-07-31T15:23:40.649731+00:00",
   "sources": [
     {
       "id": "maricopa",
@@ -21,13 +21,15 @@
       "checked_bar_label": "Pipeline output checked (checked_by)",
       "tabs_scanned": 9,
       "discovery_mode": "full",
-      "errors": []
+      "errors": [
+        "Latest refresh could not download the full workbook; showing counts from the last successful full scan."
+      ]
     },
     {
       "id": "bexar_address",
       "label": "Bexar, TX (San Antonio) \u2014 addresses",
       "total_rows": 27251,
-      "checked_rows": 20513,
+      "checked_rows": 20778,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows with address (address)",
       "tabs_scanned": 6,
@@ -48,11 +50,11 @@
     {
       "id": "hennepin",
       "label": "Hennepin, MN (Minneapolis)",
-      "total_rows": 25697,
-      "checked_rows": 25636,
+      "total_rows": 26287,
+      "checked_rows": 25679,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows checked (Checked_by)",
-      "tabs_scanned": 8,
+      "tabs_scanned": 9,
       "discovery_mode": "full",
       "errors": []
     },
