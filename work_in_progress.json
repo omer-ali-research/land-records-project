@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T13:51:38.311629+00:00",
+  "generated_at": "2026-08-20T18:02:16.521079+00:00",
   "sources": [
     {
       "id": "maricopa",
@@ -27,7 +27,7 @@
       "id": "bexar_address",
       "label": "Bexar, TX (San Antonio) \u2014 addresses",
       "total_rows": 27251,
-      "checked_rows": 25024,
+      "checked_rows": 25033,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows with address (address)",
       "tabs_scanned": 6,
@@ -78,6 +78,17 @@
       "discovery_mode": "full",
       "errors": [],
       "mark_complete": true
+    },
+    {
+      "id": "marion_address",
+      "label": "Marion, IN (Indianapolis) \u2014 addresses",
+      "total_rows": 21383,
+      "checked_rows": 3,
+      "total_bar_label": "Rows with data (all tabs)",
+      "checked_bar_label": "Addresses checked (address_checked_by)",
+      "tabs_scanned": 4,
+      "discovery_mode": "full",
+      "errors": []
     }
   ]
 }
