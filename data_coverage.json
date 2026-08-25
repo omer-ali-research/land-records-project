@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-28T21:59:04.840248",
+  "generated_at": "2026-08-25T19:54:34.384355",
   "data_root": "",
   "totals": {
-    "num_counties": 12,
-    "rows_total": 107392,
-    "rows_with_address": 75597,
-    "rows_geocoded": 68326
+    "num_counties": 13,
+    "rows_total": 118316,
+    "rows_with_address": 85107,
+    "rows_geocoded": 108060
   },
   "counties": [
     {
@@ -13,27 +13,18 @@
       "county_name": "Peoria County",
       "state": "IL",
       "subfolder": "data_il_peoria",
-      "primary_file": "data_il_peoria/peoria_all_geocoded.csv",
-      "rows_total": 2094,
-      "rows_with_address": 2060,
-      "rows_geocoded": 1512,
+      "primary_file": "data_il_peoria/peoria_all_geocoded_revised.csv",
+      "rows_total": 2090,
+      "rows_with_address": 1110,
+      "rows_geocoded": 2056,
       "files": [
         {
-          "file": "data_il_peoria/peoria_1965_1975.csv",
-          "role": "extra",
-          "raw_rows": 564,
-          "unique_rows_added": 564,
-          "rows_with_address": 548,
-          "rows_geocoded": 0,
-          "error": null
-        },
-        {
-          "file": "data_il_peoria/peoria_all_geocoded.csv",
+          "file": "data_il_peoria/peoria_all_geocoded_revised.csv",
           "role": "primary",
-          "raw_rows": 1530,
-          "unique_rows_added": 1530,
-          "rows_with_address": 1512,
-          "rows_geocoded": 1512,
+          "raw_rows": 2090,
+          "unique_rows_added": 2090,
+          "rows_with_address": 1110,
+          "rows_geocoded": 2056,
           "error": null
         }
       ]
@@ -43,27 +34,18 @@
       "county_name": "Marion County",
       "state": "IN",
       "subfolder": "data_in_marion",
-      "primary_file": "data_in_marion/marion 2026-05-17.xlsx",
-      "rows_total": 24865,
-      "rows_with_address": 3361,
-      "rows_geocoded": 3469,
+      "primary_file": "data_in_marion/marion_all_geocoded_revised.csv",
+      "rows_total": 23831,
+      "rows_with_address": 0,
+      "rows_geocoded": 22088,
       "files": [
         {
-          "file": "data_in_marion/marion 2026-05-17.xlsx",
+          "file": "data_in_marion/marion_all_geocoded_revised.csv",
           "role": "primary",
-          "raw_rows": 24366,
-          "unique_rows_added": 24366,
-          "rows_with_address": 2893,
-          "rows_geocoded": 2970,
-          "error": null
-        },
-        {
-          "file": "data_in_marion/marion_all_geocoded_intermediate.csv",
-          "role": "intermediate",
-          "raw_rows": 499,
-          "unique_rows_added": 499,
-          "rows_with_address": 468,
-          "rows_geocoded": 499,
+          "raw_rows": 23831,
+          "unique_rows_added": 23831,
+          "rows_with_address": 0,
+          "rows_geocoded": 22088,
           "error": null
         }
       ]
@@ -73,13 +55,13 @@
       "county_name": "Hampden County",
       "state": "MA",
       "subfolder": "data_ma_hampden",
-      "primary_file": "data_ma_hampden/springfield_all_geocoded.csv",
+      "primary_file": "data_ma_hampden/springfield_all_geocoded_revised.csv",
       "rows_total": 4786,
       "rows_with_address": 3934,
       "rows_geocoded": 3933,
       "files": [
         {
-          "file": "data_ma_hampden/springfield_all_geocoded.csv",
+          "file": "data_ma_hampden/springfield_all_geocoded_revised.csv",
           "role": "primary",
           "raw_rows": 4786,
           "unique_rows_added": 4786,
@@ -94,18 +76,39 @@
       "county_name": "Baltimore City",
       "state": "MD",
       "subfolder": "data_md_baltimore_city",
-      "primary_file": "data_md_baltimore_city/baltimore_all_geocoded_labeled.csv",
+      "primary_file": "data_md_baltimore_city/baltimore_all_geocoded_revised.csv",
       "rows_total": 13765,
-      "rows_with_address": 13697,
+      "rows_with_address": 13696,
       "rows_geocoded": 13677,
       "files": [
         {
-          "file": "data_md_baltimore_city/baltimore_all_geocoded_labeled.csv",
+          "file": "data_md_baltimore_city/baltimore_all_geocoded_revised.csv",
           "role": "primary",
           "raw_rows": 13765,
           "unique_rows_added": 13765,
-          "rows_with_address": 13697,
+          "rows_with_address": 13696,
           "rows_geocoded": 13677,
+          "error": null
+        }
+      ]
+    },
+    {
+      "county_id": "Baltimore County, MD",
+      "county_name": "Baltimore County",
+      "state": "MD",
+      "subfolder": "data_md_baltimore_county",
+      "primary_file": "data_md_baltimore_county/baltimorecounty_all_geocoded_revised.csv",
+      "rows_total": 12854,
+      "rows_with_address": 12083,
+      "rows_geocoded": 12127,
+      "files": [
+        {
+          "file": "data_md_baltimore_county/baltimorecounty_all_geocoded_revised.csv",
+          "role": "primary",
+          "raw_rows": 12854,
+          "unique_rows_added": 12854,
+          "rows_with_address": 12083,
+          "rows_geocoded": 12127,
           "error": null
         }
       ]
@@ -115,45 +118,18 @@
       "county_name": "Guilford County",
       "state": "NC",
       "subfolder": "data_nc_guilford",
-      "primary_file": "data_nc_guilford/guilford_all_geocoded_labeled.csv",
-      "rows_total": 7227,
-      "rows_with_address": 4132,
-      "rows_geocoded": 4742,
+      "primary_file": "data_nc_guilford/guilford_all_years_geocoded_revised.csv",
+      "rows_total": 6154,
+      "rows_with_address": 5816,
+      "rows_geocoded": 5779,
       "files": [
         {
-          "file": "data_nc_guilford/fha_guilford.xlsx",
-          "role": "extra",
-          "raw_rows": 476,
-          "unique_rows_added": 476,
-          "rows_with_address": 16,
-          "rows_geocoded": 213,
-          "error": null
-        },
-        {
-          "file": "data_nc_guilford/guilford_50_75_in_progress.xlsx",
-          "role": "in_progress",
-          "raw_rows": 6065,
-          "unique_rows_added": 6049,
-          "rows_with_address": 4111,
-          "rows_geocoded": 4096,
-          "error": null
-        },
-        {
-          "file": "data_nc_guilford/guilford_all_geocoded_labeled.csv",
+          "file": "data_nc_guilford/guilford_all_years_geocoded_revised.csv",
           "role": "primary",
-          "raw_rows": 6541,
-          "unique_rows_added": 476,
-          "rows_with_address": 4127,
-          "rows_geocoded": 4324,
-          "error": null
-        },
-        {
-          "file": "data_nc_guilford/highpoint_all_geocoded.csv",
-          "role": "satellite",
-          "raw_rows": 226,
-          "unique_rows_added": 226,
-          "rows_with_address": 0,
-          "rows_geocoded": 216,
+          "raw_rows": 6154,
+          "unique_rows_added": 6154,
+          "rows_with_address": 5816,
+          "rows_geocoded": 5779,
           "error": null
         }
       ]
@@ -163,13 +139,13 @@
       "county_name": "Mecklenburg County",
       "state": "NC",
       "subfolder": "data_nc_mecklenburg",
-      "primary_file": "data_nc_mecklenburg/mecklenburg_all_geocoded_labeled.csv",
+      "primary_file": "data_nc_mecklenburg/mecklenburg_all_geocoded_revised.csv",
       "rows_total": 12249,
       "rows_with_address": 10966,
       "rows_geocoded": 10905,
       "files": [
         {
-          "file": "data_nc_mecklenburg/mecklenburg_all_geocoded_labeled.csv",
+          "file": "data_nc_mecklenburg/mecklenburg_all_geocoded_revised.csv",
           "role": "primary",
           "raw_rows": 12249,
           "unique_rows_added": 12249,
@@ -184,18 +160,18 @@
       "county_name": "Hillsborough County",
       "state": "NH",
       "subfolder": "data_nh_hillsborough",
-      "primary_file": "data_nh_hillsborough/hillsborough_all.xlsx",
-      "rows_total": 2080,
-      "rows_with_address": 1784,
-      "rows_geocoded": 0,
+      "primary_file": "data_nh_hillsborough/hillsborough_all_geocoded_revised.csv",
+      "rows_total": 1986,
+      "rows_with_address": 1713,
+      "rows_geocoded": 1715,
       "files": [
         {
-          "file": "data_nh_hillsborough/hillsborough_all.xlsx",
+          "file": "data_nh_hillsborough/hillsborough_all_geocoded_revised.csv",
           "role": "primary",
-          "raw_rows": 2080,
-          "unique_rows_added": 2080,
-          "rows_with_address": 1784,
-          "rows_geocoded": 0,
+          "raw_rows": 1986,
+          "unique_rows_added": 1986,
+          "rows_with_address": 1713,
+          "rows_geocoded": 1715,
           "error": null
         }
       ]
@@ -205,18 +181,18 @@
       "county_name": "Onondaga County",
       "state": "NY",
       "subfolder": "data_ny_onondaga",
-      "primary_file": "data_ny_onondaga/onondaga_all.csv",
-      "rows_total": 5093,
-      "rows_with_address": 5086,
-      "rows_geocoded": 0,
+      "primary_file": "data_ny_onondaga/onondaga_all_geocoded_revised.csv",
+      "rows_total": 5091,
+      "rows_with_address": 4565,
+      "rows_geocoded": 4665,
       "files": [
         {
-          "file": "data_ny_onondaga/onondaga_all.csv",
+          "file": "data_ny_onondaga/onondaga_all_geocoded_revised.csv",
           "role": "primary",
-          "raw_rows": 5093,
-          "unique_rows_added": 5093,
-          "rows_with_address": 5086,
-          "rows_geocoded": 0,
+          "raw_rows": 5091,
+          "unique_rows_added": 5091,
+          "rows_with_address": 4565,
+          "rows_geocoded": 4665,
           "error": null
         }
       ]
@@ -226,26 +202,17 @@
       "county_name": "Tulsa County",
       "state": "OK",
       "subfolder": "data_ok_tulsa",
-      "primary_file": "data_ok_tulsa/tulsa_all_geocoded_labeled.csv",
-      "rows_total": 19836,
-      "rows_with_address": 16623,
-      "rows_geocoded": 16607,
+      "primary_file": "data_ok_tulsa/tulsa_all_geocoded_revised.csv",
+      "rows_total": 22964,
+      "rows_with_address": 19723,
+      "rows_geocoded": 19618,
       "files": [
         {
-          "file": "data_ok_tulsa/Tulsa_1960_1975_address_in_progress.xlsx",
-          "role": "in_progress",
-          "raw_rows": 11507,
-          "unique_rows_added": 11507,
-          "rows_with_address": 8845,
-          "rows_geocoded": 6575,
-          "error": null
-        },
-        {
-          "file": "data_ok_tulsa/tulsa_all_geocoded_labeled.csv",
+          "file": "data_ok_tulsa/tulsa_all_geocoded_revised.csv",
           "role": "primary",
           "raw_rows": 22964,
-          "unique_rows_added": 8329,
-          "rows_with_address": 19588,
+          "unique_rows_added": 22964,
+          "rows_with_address": 19723,
           "rows_geocoded": 19618,
           "error": null
         }
@@ -256,13 +223,13 @@
       "county_name": "Berks County",
       "state": "PA",
       "subfolder": "data_pa_berks",
-      "primary_file": "data_pa_berks/berks_all_geocoded.csv",
+      "primary_file": "data_pa_berks/berks_all_geocoded_revised.csv",
       "rows_total": 2437,
       "rows_with_address": 2244,
       "rows_geocoded": 2437,
       "files": [
         {
-          "file": "data_pa_berks/berks_all_geocoded.csv",
+          "file": "data_pa_berks/berks_all_geocoded_revised.csv",
           "role": "primary",
           "raw_rows": 2437,
           "unique_rows_added": 2437,
@@ -277,17 +244,17 @@
       "county_name": "Philadelphia County",
       "state": "PA",
       "subfolder": "data_pa_philadelphia",
-      "primary_file": "data_pa_philadelphia/philadelphia1960.xlsx",
+      "primary_file": "data_pa_philadelphia/philadelphia_all_geocoded_revised.csv",
       "rows_total": 6835,
-      "rows_with_address": 6823,
+      "rows_with_address": 6631,
       "rows_geocoded": 6434,
       "files": [
         {
-          "file": "data_pa_philadelphia/philadelphia1960.xlsx",
+          "file": "data_pa_philadelphia/philadelphia_all_geocoded_revised.csv",
           "role": "primary",
           "raw_rows": 6835,
           "unique_rows_added": 6835,
-          "rows_with_address": 6823,
+          "rows_with_address": 6631,
           "rows_geocoded": 6434,
           "error": null
         }
@@ -298,25 +265,16 @@
       "county_name": "Galveston County",
       "state": "TX",
       "subfolder": "data_tx_galveston",
-      "primary_file": "data_tx_galveston/galveston_all_geocoded_labeled.csv",
-      "rows_total": 6125,
-      "rows_with_address": 4887,
-      "rows_geocoded": 4610,
+      "primary_file": "data_tx_galveston/galveston_all_geocoded_revised.csv",
+      "rows_total": 3274,
+      "rows_with_address": 2626,
+      "rows_geocoded": 2626,
       "files": [
         {
-          "file": "data_tx_galveston/galveston_50_75_in_progress.xlsx",
-          "role": "in_progress",
-          "raw_rows": 3274,
-          "unique_rows_added": 3271,
-          "rows_with_address": 2626,
-          "rows_geocoded": 2302,
-          "error": null
-        },
-        {
-          "file": "data_tx_galveston/galveston_all_geocoded_labeled.csv",
+          "file": "data_tx_galveston/galveston_all_geocoded_revised.csv",
           "role": "primary",
           "raw_rows": 3274,
-          "unique_rows_added": 2854,
+          "unique_rows_added": 3274,
           "rows_with_address": 2626,
           "rows_geocoded": 2626,
           "error": null

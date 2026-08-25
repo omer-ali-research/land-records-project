@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T13:54:32.249490+00:00",
+  "generated_at": "2026-08-25T20:05:42.273147+00:00",
   "sources": [
     {
       "id": "maricopa",
@@ -27,7 +27,7 @@
       "id": "bexar_address",
       "label": "Bexar, TX (San Antonio) \u2014 addresses",
       "total_rows": 27251,
-      "checked_rows": 25199,
+      "checked_rows": 25247,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows with address (address)",
       "tabs_scanned": 6,
@@ -89,6 +89,20 @@
       "tabs_scanned": 4,
       "discovery_mode": "full",
       "errors": []
+    },
+    {
+      "id": "summit",
+      "label": "Summit, OH (Akron)",
+      "total_rows": 6249,
+      "checked_rows": 0,
+      "total_bar_label": "Rows with data (all tabs)",
+      "checked_bar_label": "Rows checked (Checked_By)",
+      "tabs_scanned": 9,
+      "discovery_mode": "full",
+      "errors": [
+        "'Mortgage_Books' (#1 of 9): column 'Checked_By' not found in header row 1",
+        "'Summit_1965_VA' (#5 of 9): column 'Checked_By' not found in header row 1"
+      ]
     }
   ]
 }

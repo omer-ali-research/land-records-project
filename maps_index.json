@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T20:29:12.681065",
+  "generated_at": "2026-08-25T19:54:47.339322",
   "periods": [
     "1935-40",
     "1950",
@@ -18,15 +18,15 @@
       "maps_slug": "baltimore_city_md",
       "geojson": "maps/baltimore_city_md.geojson",
       "boundary": "maps/boundaries/baltimore_city_md_boundary.geojson",
-      "feature_count": 13677,
+      "feature_count": 3478,
       "bounds": [
         [
           38.93095625,
-          -76.721417
+          -76.721255
         ],
         [
           39.416996749999996,
-          -76.519414
+          -76.519641
         ]
       ],
       "census_tract_black_share_by_year": {
@@ -34,6 +34,31 @@
         "1950": "maps/census_tracts/baltimore_city_md_black_share_1950.geojson",
         "1960": "maps/census_tracts/baltimore_city_md_black_share_1960.geojson",
         "1970": "maps/census_tracts/baltimore_city_md_black_share_1970.geojson"
+      }
+    },
+    {
+      "county_id": "Baltimore County, MD",
+      "county_name": "Baltimore County",
+      "state": "MD",
+      "geoid": "24005",
+      "maps_slug": "baltimore_md",
+      "geojson": "maps/baltimore_md.geojson",
+      "boundary": "maps/boundaries/baltimore_md_boundary.geojson",
+      "feature_count": 10158,
+      "bounds": [
+        [
+          39.1979798435,
+          -76.8619488421769
+        ],
+        [
+          39.5453309465,
+          -76.3155211542849
+        ]
+      ],
+      "census_tract_black_share_by_year": {
+        "1950": "maps/census_tracts/baltimore_md_black_share_1950.geojson",
+        "1960": "maps/census_tracts/baltimore_md_black_share_1960.geojson",
+        "1970": "maps/census_tracts/baltimore_md_black_share_1970.geojson"
       }
     },
     {
@@ -92,15 +117,15 @@
       "maps_slug": "guilford_nc",
       "geojson": "maps/guilford_nc.geojson",
       "boundary": "maps/boundaries/guilford_nc_boundary.geojson",
-      "feature_count": 4048,
+      "feature_count": 5779,
       "bounds": [
         [
           35.88789877,
-          -80.066765855
+          -80.258459735
         ],
         [
           36.25732343,
-          -79.517162845
+          -79.508034565
         ]
       ],
       "census_tract_black_share_by_year": {
@@ -135,6 +160,30 @@
       }
     },
     {
+      "county_id": "Hillsborough County, NH",
+      "county_name": "Hillsborough County",
+      "state": "NH",
+      "geoid": "33011",
+      "maps_slug": "hillsborough_nh",
+      "geojson": "maps/hillsborough_nh.geojson",
+      "boundary": "maps/boundaries/hillsborough_nh_boundary.geojson",
+      "feature_count": 1715,
+      "bounds": [
+        [
+          42.67236761,
+          -73.729870075
+        ],
+        [
+          43.33715679,
+          -70.673863825
+        ]
+      ],
+      "census_tract_black_share_by_year": {
+        "1960": "maps/census_tracts/hillsborough_nh_black_share_1960.geojson",
+        "1970": "maps/census_tracts/hillsborough_nh_black_share_1970.geojson"
+      }
+    },
+    {
       "county_id": "Marion County, IN",
       "county_name": "Marion County",
       "state": "IN",
@@ -142,17 +191,23 @@
       "maps_slug": "marion_in",
       "geojson": "maps/marion_in.geojson",
       "boundary": "maps/boundaries/marion_in_boundary.geojson",
-      "feature_count": 2956,
+      "feature_count": 19526,
       "bounds": [
         [
-          39.623974849999996,
-          -86.34537914678045
+          39.62080905,
+          -86.3425146
         ],
         [
-          39.94143815,
-          -85.93179889777235
+          39.93976395,
+          -85.9334554
         ]
-      ]
+      ],
+      "census_tract_black_share_by_year": {
+        "1940": "maps/census_tracts/marion_in_black_share_1940.geojson",
+        "1950": "maps/census_tracts/marion_in_black_share_1950.geojson",
+        "1960": "maps/census_tracts/marion_in_black_share_1960.geojson",
+        "1970": "maps/census_tracts/marion_in_black_share_1970.geojson"
+      }
     },
     {
       "county_id": "Mecklenburg County, NC",
@@ -162,7 +217,7 @@
       "maps_slug": "mecklenburg_nc",
       "geojson": "maps/mecklenburg_nc.geojson",
       "boundary": "maps/boundaries/mecklenburg_nc_boundary.geojson",
-      "feature_count": 10723,
+      "feature_count": 10724,
       "bounds": [
         [
           34.817816615000005,
@@ -179,6 +234,32 @@
       }
     },
     {
+      "county_id": "Onondaga County, NY",
+      "county_name": "Onondaga County",
+      "state": "NY",
+      "geoid": "36067",
+      "maps_slug": "onondaga_ny",
+      "geojson": "maps/onondaga_ny.geojson",
+      "boundary": "maps/boundaries/onondaga_ny_boundary.geojson",
+      "feature_count": 4665,
+      "bounds": [
+        [
+          42.768425154999996,
+          -77.04047357500001
+        ],
+        [
+          43.361865145,
+          -75.682691325
+        ]
+      ],
+      "census_tract_black_share_by_year": {
+        "1940": "maps/census_tracts/onondaga_ny_black_share_1940.geojson",
+        "1950": "maps/census_tracts/onondaga_ny_black_share_1950.geojson",
+        "1960": "maps/census_tracts/onondaga_ny_black_share_1960.geojson",
+        "1970": "maps/census_tracts/onondaga_ny_black_share_1970.geojson"
+      }
+    },
+    {
       "county_id": "Peoria County, IL",
       "county_name": "Peoria County",
       "state": "IL",
@@ -186,15 +267,15 @@
       "maps_slug": "peoria_il",
       "geojson": "maps/peoria_il.geojson",
       "boundary": "maps/boundaries/peoria_il_boundary.geojson",
-      "feature_count": 1512,
+      "feature_count": 1110,
       "bounds": [
         [
-          40.547915599999996,
-          -89.9993633
+          40.5496752,
+          -89.912095595
         ],
         [
-          40.9507004,
-          -89.4575407
+          40.9462208,
+          -89.461214505
         ]
       ],
       "census_tract_black_share_by_year": {
@@ -210,7 +291,7 @@
       "maps_slug": "philadelphia_pa",
       "geojson": "maps/philadelphia_pa.geojson",
       "boundary": "maps/boundaries/philadelphia_pa_boundary.geojson",
-      "feature_count": 6289,
+      "feature_count": 6288,
       "bounds": [
         [
           39.89630405,
@@ -236,15 +317,15 @@
       "maps_slug": "tulsa_ok",
       "geojson": "maps/tulsa_ok.geojson",
       "boundary": "maps/boundaries/tulsa_ok_boundary.geojson",
-      "feature_count": 19447,
+      "feature_count": 8751,
       "bounds": [
         [
-          35.281925375,
-          -97.582751055
+          35.90244611,
+          -96.16318802
         ],
         [
-          47.296374525,
-          -72.768534045
+          36.39415689,
+          -95.70911418
         ]
       ],
       "census_tract_black_share_by_year": {
