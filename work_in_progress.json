@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-08-26T13:58:34.033173+00:00",
+  "generated_at": "2026-08-27T22:54:07.110651+00:00",
   "sources": [
     {
       "id": "maricopa",
       "label": "Maricopa, AZ (Phoenix)",
       "total_rows": 50015,
-      "checked_rows": 46369,
+      "checked_rows": 46398,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Pipeline output checked (checked_by)",
       "tabs_scanned": 35,
@@ -27,7 +27,7 @@
       "id": "bexar_address",
       "label": "Bexar, TX (San Antonio) \u2014 addresses",
       "total_rows": 27251,
-      "checked_rows": 25252,
+      "checked_rows": 25332,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows with address (address)",
       "tabs_scanned": 6,
@@ -93,15 +93,14 @@
     {
       "id": "summit",
       "label": "Summit, OH (Akron)",
-      "total_rows": 6249,
-      "checked_rows": 0,
+      "total_rows": 6484,
+      "checked_rows": 36,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows checked (Checked_By)",
       "tabs_scanned": 9,
       "discovery_mode": "full",
       "errors": [
-        "'Mortgage_Books' (#1 of 9): column 'Checked_By' not found in header row 1",
-        "'Summit_1965_VA' (#5 of 9): column 'Checked_By' not found in header row 1"
+        "'Mortgage_Books' (#1 of 9): column 'Checked_By' not found in header row 1"
       ]
     }
   ]
