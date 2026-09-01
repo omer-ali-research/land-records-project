@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T19:54:47.339322",
+  "generated_at": "2026-09-01T16:14:35.752341",
   "periods": [
     "1935-40",
     "1950",
@@ -18,15 +18,15 @@
       "maps_slug": "baltimore_city_md",
       "geojson": "maps/baltimore_city_md.geojson",
       "boundary": "maps/boundaries/baltimore_city_md_boundary.geojson",
-      "feature_count": 3478,
+      "feature_count": 15157,
       "bounds": [
         [
           38.93095625,
-          -76.721255
+          -76.72274900000001
         ],
         [
           39.416996749999996,
-          -76.519641
+          -76.519414
         ]
       ],
       "census_tract_black_share_by_year": {
@@ -142,7 +142,7 @@
       "maps_slug": "hampden_ma",
       "geojson": "maps/hampden_ma.geojson",
       "boundary": "maps/boundaries/hampden_ma_boundary.geojson",
-      "feature_count": 3766,
+      "feature_count": 3767,
       "bounds": [
         [
           -39.347705315000006,
@@ -217,7 +217,7 @@
       "maps_slug": "mecklenburg_nc",
       "geojson": "maps/mecklenburg_nc.geojson",
       "boundary": "maps/boundaries/mecklenburg_nc_boundary.geojson",
-      "feature_count": 10724,
+      "feature_count": 10725,
       "bounds": [
         [
           34.817816615000005,
@@ -267,15 +267,15 @@
       "maps_slug": "peoria_il",
       "geojson": "maps/peoria_il.geojson",
       "boundary": "maps/boundaries/peoria_il_boundary.geojson",
-      "feature_count": 1110,
+      "feature_count": 2056,
       "bounds": [
         [
-          40.5496752,
-          -89.912095595
+          40.547915599999996,
+          -89.999386295
         ],
         [
-          40.9462208,
-          -89.461214505
+          40.9507004,
+          -89.457057805
         ]
       ],
       "census_tract_black_share_by_year": {
