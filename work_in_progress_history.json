@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T17:15:28.398082+00:00",
+  "generated_at": "2026-09-02T17:05:39.823996+00:00",
   "retention_days": 400,
   "snapshots": [
     {
@@ -5267,6 +5267,66 @@
           "label": "Bexar, TX (San Antonio) \u2014 addresses",
           "total_rows": 27251,
           "checked_rows": 25410
+        },
+        {
+          "id": "guilford",
+          "label": "Guilford, NC (Greensboro)",
+          "total_rows": 6065,
+          "checked_rows": 6061
+        },
+        {
+          "id": "hennepin",
+          "label": "Hennepin, MN (Minneapolis)",
+          "total_rows": 26287,
+          "checked_rows": 26225
+        },
+        {
+          "id": "peoria_65_75",
+          "label": "Peoria, IL (1965 & 1975 sample)",
+          "total_rows": 566,
+          "checked_rows": 564
+        },
+        {
+          "id": "peoria_65_75_address",
+          "label": "Peoria, IL (1965 & 1975 sample) \u2014 addresses",
+          "total_rows": 566,
+          "checked_rows": 548
+        },
+        {
+          "id": "marion_address",
+          "label": "Marion, IN (Indianapolis) \u2014 addresses",
+          "total_rows": 21383,
+          "checked_rows": 3
+        },
+        {
+          "id": "summit",
+          "label": "Summit, OH (Akron)",
+          "total_rows": 6484,
+          "checked_rows": 210
+        }
+      ]
+    },
+    {
+      "date": "2026-09-02",
+      "generated_at": "2026-09-02T17:05:39.823996+00:00",
+      "sources": [
+        {
+          "id": "maricopa",
+          "label": "Maricopa, AZ (Phoenix)",
+          "total_rows": 50015,
+          "checked_rows": 46598
+        },
+        {
+          "id": "bexar",
+          "label": "Bexar, TX (San Antonio)",
+          "total_rows": 27250,
+          "checked_rows": 27246
+        },
+        {
+          "id": "bexar_address",
+          "label": "Bexar, TX (San Antonio) \u2014 addresses",
+          "total_rows": 27251,
+          "checked_rows": 25517
         },
         {
           "id": "guilford",
