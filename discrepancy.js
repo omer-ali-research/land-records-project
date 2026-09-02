@@ -21,6 +21,9 @@ const PERIOD_SCOPE_LABEL = {
   "1975": "SMA",
 };
 
+const BALTIMORE_CITY_ID = "Baltimore City, MD";
+const BALTIMORE_COUNTY_ID = "Baltimore County, MD";
+
 /* Distinct hues: warm (reported / agency) vs cool blue (collected / in-hand) */
 const COLOR_REPORTED_FILL = "rgba(249, 115, 22, 0.98)";
 const COLOR_REPORTED_STROKE = "rgba(254, 215, 170, 0.55)";
@@ -82,16 +85,71 @@ function summaryByCountyId(summaryCounties) {
   return map;
 }
 
-function columnScaleMax(rows, periods, summaryMap) {
+function trendsByCountyId(trendRows) {
+  const map = new Map();
+  for (const row of trendRows || []) {
+    const id = String(row.county_id || "").trim();
+    if (id) map.set(id, row);
+  }
+  return map;
+}
+
+function assertBaltimorePair(trendById) {
+  const hasCity = trendById.has(BALTIMORE_CITY_ID);
+  const hasCounty = trendById.has(BALTIMORE_COUNTY_ID);
+  if (hasCity === hasCounty) return;
+  const missing = hasCity ? BALTIMORE_COUNTY_ID : BALTIMORE_CITY_ID;
+  throw new Error(
+    `trends.json has one Baltimore jurisdiction but not the other (missing ${missing}). ` +
+      "Metro/SMA collected FHA counts combine Baltimore City and Baltimore County.",
+  );
+}
+
+function isCountyLevelPeriod(period) {
+  return PERIOD_SCOPE_LABEL[period] === "COUNTY";
+}
+
+/**
+ * Reported vs collected for one county-period cell.
+ * Metro/SMA years combine Baltimore City + County collected and show the
+ * comparison only on the City row (County cells set show=false).
+ */
+function discrepancyValues(tr, period, summaryMap, trendById) {
+  const id = String(tr.county_id || "").trim();
+  const sr = summaryMap.get(id);
+  const key = PERIOD_REPORTED_KEYS[period];
+  const countyLevel = isCountyLevelPeriod(period);
+
+  if (!countyLevel && id === BALTIMORE_COUNTY_ID) {
+    return { reported: null, collected: null, show: false, combinedCollected: false };
+  }
+
+  const reported = sr && key ? parseReported(sr[key]) : null;
+  let collected = fhaCollected(tr, period);
+  let combinedCollected = false;
+
+  if (!countyLevel && id === BALTIMORE_CITY_ID) {
+    const countyTr = trendById.get(BALTIMORE_COUNTY_ID);
+    if (!countyTr) {
+      throw new Error(
+        "Baltimore County missing from trends.json; cannot combine metro/SMA collected FHA counts.",
+      );
+    }
+    collected += fhaCollected(countyTr, period);
+    combinedCollected = true;
+  }
+
+  return { reported, collected, show: true, combinedCollected };
+}
+
+function columnScaleMax(rows, periods, summaryMap, trendById) {
   const maxByPeriod = {};
   for (const p of periods) {
     let m = 1;
-    const key = PERIOD_REPORTED_KEYS[p];
     for (const tr of rows) {
-      const sr = summaryMap.get(String(tr.county_id || "").trim());
-      const rep = sr && key ? parseReported(sr[key]) : null;
-      const col = fhaCollected(tr, p);
-      m = Math.max(m, rep ?? 0, col);
+      const vals = discrepancyValues(tr, p, summaryMap, trendById);
+      if (!vals.show) continue;
+      m = Math.max(m, vals.reported ?? 0, vals.collected ?? 0);
     }
     maxByPeriod[p] = m;
   }
@@ -106,7 +164,7 @@ function formatCellNum(n) {
 /**
  * Horizontal dumbbell: x by value on 0..scaleMax. Reported label above axis; collected below.
  */
-function dumbbellSvg(reportedNum, collectedNum, scaleMax, periodLabel) {
+function dumbbellSvg(reportedNum, collectedNum, scaleMax, periodLabel, combinedCollected) {
   const w = 152;
   const h = 58;
   const padX = 6;
@@ -171,7 +229,8 @@ function dumbbellSvg(reportedNum, collectedNum, scaleMax, periodLabel) {
     )}</text>`,
   );
 
-  const aria = `Reported ${rep != null ? formatCellNum(rep) : "missing"}, collected ${formatCellNum(col)}, period ${periodLabel}`;
+  const collectedScope = combinedCollected ? " (Baltimore City + County)" : "";
+  const aria = `Reported ${rep != null ? formatCellNum(rep) : "missing"}, collected ${formatCellNum(col)}${collectedScope}, period ${periodLabel}`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="${escapeHtml(aria)}">${parts.join("")}</svg>`;
 }
@@ -210,7 +269,7 @@ function rowMatchesDiscrepancySearch(tr, query) {
   return hay.includes(q);
 }
 
-function renderTable(tbody, trendRows, periods, summaryMap, searchQuery) {
+function renderTable(tbody, trendRows, periods, summaryMap, searchQuery, trendById) {
   if (!tbody) return 0;
 
   let rows = trendRows.filter((tr) => rowMatchesDiscrepancySearch(tr, searchQuery));
@@ -230,18 +289,17 @@ function renderTable(tbody, trendRows, periods, summaryMap, searchQuery) {
     return 0;
   }
 
-  const scaleByPeriod = columnScaleMax(rows, periods, summaryMap);
+  const scaleByPeriod = columnScaleMax(rows, periods, summaryMap, trendById);
 
   tbody.innerHTML = rows
     .map((tr) => {
-      const id = String(tr.county_id || "").trim();
-      const sr = summaryMap.get(id);
       const cells = periods.map((p) => {
-        const key = PERIOD_REPORTED_KEYS[p];
-        const rep = sr && key ? parseReported(sr[key]) : null;
-        const col = fhaCollected(tr, p);
+        const vals = discrepancyValues(tr, p, summaryMap, trendById);
+        if (!vals.show) {
+          return `<td class="discrepancy-cell discrepancy-cell--see-pair">see Baltimore City</td>`;
+        }
         const scale = scaleByPeriod[p] || 1;
-        return `<td class="discrepancy-cell">${dumbbellSvg(rep, col, scale, p)}</td>`;
+        return `<td class="discrepancy-cell">${dumbbellSvg(vals.reported, vals.collected, scale, p, vals.combinedCollected)}</td>`;
       });
       return `<tr>
         <td>${escapeHtml(tr.county_name || "")}</td>
@@ -279,11 +337,13 @@ async function initDiscrepancyPage() {
     trendRows = Array.isArray(trends.counties) ? trends.counties : [];
     const summaryRows = filterCountyRows(Array.isArray(summary.counties) ? summary.counties : []);
     summaryMap = summaryByCountyId(summaryRows);
+    const trendById = trendsByCountyId(trendRows);
+    assertBaltimorePair(trendById);
 
     renderDiscrepancyThead(thead, periods);
 
     const refresh = () => {
-      const shown = renderTable(tbody, trendRows, periods, summaryMap, searchInput?.value ?? "");
+      const shown = renderTable(tbody, trendRows, periods, summaryMap, searchInput?.value ?? "", trendById);
       if (countEl) {
         countEl.textContent = `${shown.toLocaleString()} / ${trendRows.length.toLocaleString()}`;
       }
