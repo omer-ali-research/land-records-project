@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T16:14:35.752341",
+  "generated_at": "2026-09-02T20:12:26.862405",
   "periods": [
     "1935-40",
     "1950",
@@ -11,54 +11,33 @@
   "all_periods_value": "all",
   "counties": [
     {
-      "county_id": "Baltimore City, MD",
-      "county_name": "Baltimore City",
+      "county_id": "Baltimore City and Baltimore County, MD",
+      "county_name": "Baltimore City and Baltimore County",
       "state": "MD",
-      "geoid": "24510",
-      "maps_slug": "baltimore_city_md",
-      "geojson": "maps/baltimore_city_md.geojson",
-      "boundary": "maps/boundaries/baltimore_city_md_boundary.geojson",
-      "feature_count": 15157,
+      "geoid": null,
+      "maps_slug": "baltimore_md_metro",
+      "geojson": "maps/baltimore_md_metro.geojson",
+      "boundary": "maps/boundaries/baltimore_md_metro_boundary.geojson",
+      "feature_count": 25315,
       "bounds": [
         [
-          38.93095625,
-          -76.72274900000001
-        ],
-        [
-          39.416996749999996,
-          -76.519414
-        ]
-      ],
-      "census_tract_black_share_by_year": {
-        "1940": "maps/census_tracts/baltimore_city_md_black_share_1940.geojson",
-        "1950": "maps/census_tracts/baltimore_city_md_black_share_1950.geojson",
-        "1960": "maps/census_tracts/baltimore_city_md_black_share_1960.geojson",
-        "1970": "maps/census_tracts/baltimore_city_md_black_share_1970.geojson"
-      }
-    },
-    {
-      "county_id": "Baltimore County, MD",
-      "county_name": "Baltimore County",
-      "state": "MD",
-      "geoid": "24005",
-      "maps_slug": "baltimore_md",
-      "geojson": "maps/baltimore_md.geojson",
-      "boundary": "maps/boundaries/baltimore_md_boundary.geojson",
-      "feature_count": 10158,
-      "bounds": [
-        [
-          39.1979798435,
+          38.924224337,
           -76.8619488421769
         ],
         [
-          39.5453309465,
+          39.558366923,
           -76.3155211542849
         ]
       ],
+      "combined_from": [
+        "Baltimore City, MD",
+        "Baltimore County, MD"
+      ],
       "census_tract_black_share_by_year": {
-        "1950": "maps/census_tracts/baltimore_md_black_share_1950.geojson",
-        "1960": "maps/census_tracts/baltimore_md_black_share_1960.geojson",
-        "1970": "maps/census_tracts/baltimore_md_black_share_1970.geojson"
+        "1940": "maps/census_tracts/baltimore_md_metro_black_share_1940.geojson",
+        "1950": "maps/census_tracts/baltimore_md_metro_black_share_1950.geojson",
+        "1960": "maps/census_tracts/baltimore_md_metro_black_share_1960.geojson",
+        "1970": "maps/census_tracts/baltimore_md_metro_black_share_1970.geojson"
       }
     },
     {
@@ -317,15 +296,15 @@
       "maps_slug": "tulsa_ok",
       "geojson": "maps/tulsa_ok.geojson",
       "boundary": "maps/boundaries/tulsa_ok_boundary.geojson",
-      "feature_count": 8751,
+      "feature_count": 19453,
       "bounds": [
         [
-          35.90244611,
-          -96.16318802
+          35.281925375,
+          -97.582751055
         ],
         [
-          36.39415689,
-          -95.70911418
+          47.296374525,
+          -72.768534045
         ]
       ],
       "census_tract_black_share_by_year": {

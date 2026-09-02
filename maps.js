@@ -1,7 +1,10 @@
 /* global L */
 
-const CARTO_LIGHT =
-  "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
+/* CARTO free raster tiles now require an API key (watermark). Esri light gray needs none. */
+const BASEMAP_LIGHT =
+  "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}";
+const BASEMAP_LIGHT_LABELS =
+  "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}";
 
 const FHA_SINGLE = "#2563eb";
 const VA_SINGLE = "#facc15";
@@ -310,12 +313,17 @@ function initCountyBlock(container, entry, allValue, initSeq) {
 
     tractLayerRoot = L.layerGroup({ pane: "mapsTractPane" });
 
-    L.tileLayer(CARTO_LIGHT, {
+    L.tileLayer(BASEMAP_LIGHT, {
       attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: "abcd",
+        'Tiles &copy; <a href="https://www.esri.com/">Esri</a> &mdash; Esri, TomTom, Garmin, FAO, NOAA, USGS',
       maxZoom: 20,
-      maxNativeZoom: 20,
+      maxNativeZoom: 16,
+    }).addTo(map);
+    L.tileLayer(BASEMAP_LIGHT_LABELS, {
+      attribution: "",
+      maxZoom: 20,
+      maxNativeZoom: 16,
+      pane: "overlayPane",
     }).addTo(map);
 
     let countyBounds = null;
