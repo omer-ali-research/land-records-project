@@ -296,7 +296,7 @@ function renderTable(tbody, trendRows, periods, summaryMap, searchQuery, trendBy
       const cells = periods.map((p) => {
         const vals = discrepancyValues(tr, p, summaryMap, trendById);
         if (!vals.show) {
-          return `<td class="discrepancy-cell discrepancy-cell--see-pair">see Baltimore City</td>`;
+          return `<td class="discrepancy-cell"></td>`;
         }
         const scale = scaleByPeriod[p] || 1;
         return `<td class="discrepancy-cell">${dumbbellSvg(vals.reported, vals.collected, scale, p, vals.combinedCollected)}</td>`;

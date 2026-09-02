@@ -1249,12 +1249,6 @@ select:focus-visible {
   margin: 0 auto;
 }
 
-.discrepancy-cell--see-pair {
-  color: var(--muted);
-  font-size: 0.78rem;
-  white-space: nowrap;
-}
-
 .trends-charts-root {
   display: flex;
   flex-direction: column;
