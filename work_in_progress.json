@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-06T16:06:35.463205+00:00",
+  "generated_at": "2026-09-07T18:15:11.150674+00:00",
   "sources": [
     {
       "id": "maricopa",
       "label": "Maricopa, AZ (Phoenix)",
       "total_rows": 50015,
-      "checked_rows": 46955,
+      "checked_rows": 47107,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Pipeline output checked (checked_by)",
       "tabs_scanned": 35,
@@ -22,6 +22,7 @@
       "tabs_scanned": 9,
       "discovery_mode": "full",
       "errors": [
+        "Latest refresh could not download the full workbook; showing counts from the last successful full scan.",
         "Latest refresh could not download the full workbook; showing counts from the last successful full scan."
       ]
     },
@@ -56,7 +57,9 @@
       "checked_bar_label": "Rows checked (Checked_by)",
       "tabs_scanned": 9,
       "discovery_mode": "full",
-      "errors": []
+      "errors": [
+        "Latest refresh could not download the full workbook; showing counts from the last successful full scan."
+      ]
     },
     {
       "id": "peoria_65_75",
