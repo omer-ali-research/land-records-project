@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T18:15:11.150674+00:00",
+  "generated_at": "2026-09-08T17:09:34.105106+00:00",
   "sources": [
     {
       "id": "maricopa",
@@ -21,16 +21,13 @@
       "checked_bar_label": "Pipeline output checked (checked_by)",
       "tabs_scanned": 9,
       "discovery_mode": "full",
-      "errors": [
-        "Latest refresh could not download the full workbook; showing counts from the last successful full scan.",
-        "Latest refresh could not download the full workbook; showing counts from the last successful full scan."
-      ]
+      "errors": []
     },
     {
       "id": "bexar_address",
       "label": "Bexar, TX (San Antonio) \u2014 addresses",
       "total_rows": 27251,
-      "checked_rows": 25671,
+      "checked_rows": 25810,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows with address (address)",
       "tabs_scanned": 6,
@@ -57,9 +54,7 @@
       "checked_bar_label": "Rows checked (Checked_by)",
       "tabs_scanned": 9,
       "discovery_mode": "full",
-      "errors": [
-        "Latest refresh could not download the full workbook; showing counts from the last successful full scan."
-      ]
+      "errors": []
     },
     {
       "id": "peoria_65_75",
