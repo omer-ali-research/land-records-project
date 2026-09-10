@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T17:06:06.988217+00:00",
+  "generated_at": "2026-09-10T16:57:32.569323+00:00",
   "sources": [
     {
       "id": "maricopa",
@@ -27,7 +27,7 @@
       "id": "bexar_address",
       "label": "Bexar, TX (San Antonio) \u2014 addresses",
       "total_rows": 27251,
-      "checked_rows": 25884,
+      "checked_rows": 25943,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows with address (address)",
       "tabs_scanned": 6,
@@ -94,7 +94,7 @@
       "id": "summit",
       "label": "Summit, OH (Akron)",
       "total_rows": 6484,
-      "checked_rows": 476,
+      "checked_rows": 505,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows checked (Checked_By)",
       "tabs_scanned": 9,
