@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-28T20:03:49.244129+00:00",
+  "generated_at": "2026-09-29T18:32:06.309046+00:00",
   "sources": [
     {
       "id": "maricopa",
       "label": "Maricopa, AZ (Phoenix)",
       "total_rows": 50015,
-      "checked_rows": 48825,
+      "checked_rows": 48868,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Pipeline output checked (checked_by)",
       "tabs_scanned": 35,
@@ -94,13 +94,14 @@
       "id": "summit",
       "label": "Summit, OH (Akron)",
       "total_rows": 12345,
-      "checked_rows": 1144,
+      "checked_rows": 1201,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows checked (Checked_By)",
-      "tabs_scanned": 12,
+      "tabs_scanned": 13,
       "discovery_mode": "full",
       "errors": [
-        "'Mortgage_Books' (#1 of 12): column 'Checked_By' not found in header row 1"
+        "'TOC' (#1 of 13): column 'Checked_By' not found in header row 1",
+        "'Mortgage_Books' (#2 of 13): column 'Checked_By' not found in header row 1"
       ]
     }
   ]
