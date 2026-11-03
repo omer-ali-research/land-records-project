@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-11-02T22:14:34.824935+00:00",
+  "generated_at": "2026-11-03T20:01:21.948117+00:00",
   "sources": [
     {
       "id": "maricopa",
       "label": "Maricopa, AZ (Phoenix)",
-      "total_rows": 50012,
-      "checked_rows": 49880,
+      "total_rows": 52204,
+      "checked_rows": 51958,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Pipeline output checked (checked_by)",
-      "tabs_scanned": 35,
+      "tabs_scanned": 36,
       "discovery_mode": "full",
       "errors": []
     },
@@ -93,8 +93,8 @@
     {
       "id": "summit",
       "label": "Summit, OH (Akron)",
-      "total_rows": 12342,
-      "checked_rows": 6378,
+      "total_rows": 12350,
+      "checked_rows": 6535,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows checked (Checked_By)",
       "tabs_scanned": 13,
