@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T20:01:21.948117+00:00",
+  "generated_at": "2026-11-04T20:21:07.887928+00:00",
   "sources": [
     {
       "id": "maricopa",
@@ -94,7 +94,7 @@
       "id": "summit",
       "label": "Summit, OH (Akron)",
       "total_rows": 12350,
-      "checked_rows": 6535,
+      "checked_rows": 6657,
       "total_bar_label": "Rows with data (all tabs)",
       "checked_bar_label": "Rows checked (Checked_By)",
       "tabs_scanned": 13,
