@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T00:40:24.625603+00:00",
+  "generated_at": "2026-11-24T22:58:10.966444+00:00",
   "retention_days": 400,
   "snapshots": [
     {
@@ -10228,7 +10228,7 @@
     },
     {
       "date": "2026-11-24",
-      "generated_at": "2026-11-24T00:40:24.625603+00:00",
+      "generated_at": "2026-11-24T22:58:10.966444+00:00",
       "sources": [
         {
           "id": "maricopa",
@@ -10282,7 +10282,7 @@
           "id": "summit",
           "label": "Summit, OH (Akron)",
           "total_rows": 12348,
-          "checked_rows": 10590
+          "checked_rows": 10617
         }
       ]
     }
